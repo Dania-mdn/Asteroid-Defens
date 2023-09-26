@@ -12,12 +12,12 @@ public class Match3Control : MonoBehaviour
     [SerializeField] private int countUnit; // набор цветов/id
     [SerializeField] private int gridWidth = 7; // ширина игрового поля
     [SerializeField] private int gridHeight = 10; // высота игрового поля
-    [SerializeField] private Match3Node sampleObject; // образец узла (префаб)
     [SerializeField] private Match3Node[] Units; // разные юниты
     [SerializeField] private float sampleSize = 1; // размер узла (ширина и высота)
 
     public Match3Node[,] grid;
     private Match3Node[] nodeArray;
+    private List<GameObject> FolseActiveArray;
     private Vector3[,] position;
     private Match3Node current, last;
     private Vector3 currentPos, lastPos;
@@ -29,8 +29,6 @@ public class Match3Control : MonoBehaviour
     {
         // создание игрового поля (2D массив) с заданными параметрами
         Create2DGrid(Units, gridWidth, gridHeight, sampleSize, transform);
-
-        GridUpdate();
 
         if (IsLine())
         {
@@ -49,17 +47,32 @@ public class Match3Control : MonoBehaviour
             for (int i = 0; i < lines.Count; i++)
             {
                 // здесь можно подсчитывать очки +1
-                lines[i].gameObject.SetActive(false);
-                grid[lines[i].x, lines[i].y] = null;
-                //Destroy(lines[i].gameObject);
-
-                //for (int y = lines[i].y - 1; y >= 0; y--)
-                //{
-                //    if (grid[lines[i].x, y] != null)
-                //    {
-                //        //grid[lines[i].x, y].move = true;
-                //    }
-                //}
+                if (current != null)
+                {
+                    if (lines[i] != current)
+                    {
+                        lines[i].gameObject.SetActive(false);
+                        grid[lines[i].x, lines[i].y] = null;
+                        FolseActiveArray.Add(lines[i].gameObject);
+                    }
+                    else
+                    {
+                        current.AddLvL();
+                    }
+                }
+                else
+                {
+                    if (i == 0)
+                    {
+                        lines[0].AddLvL();
+                    }
+                    else
+                    {
+                        lines[i].gameObject.SetActive(false);
+                        grid[lines[i].x, lines[i].y] = null;
+                        FolseActiveArray.Add(lines[i].gameObject);
+                    }
+                }
             }
 
             isMove = true;
@@ -71,19 +84,19 @@ public class Match3Control : MonoBehaviour
     {
         if (!isMove) return;
 
-        for (int y = 0; y < gridHeight; y++)
+        for (int y = gridHeight - 1; y >= 0; y--)
         {
             for (int x = 0; x < gridWidth; x++)
             {
-                if (grid[x, 0] == null)
+                if (grid[x, gridHeight-1] == null)
                 {
                     bool check = true;
 
                     for (int i = 0; i < gridWidth; i++)
                     {
-                        if (grid[i, 0] == null)
+                        if (grid[i, gridHeight-1] == null)
                         {
-                            grid[i, 0] = GetFree(position[i, 0]);
+                            grid[i, gridHeight-1] = GetFree(position[i, gridHeight-1]);
                         }
                     }
 
@@ -104,18 +117,16 @@ public class Match3Control : MonoBehaviour
                         }
                     }
                 }
+                if (grid[x, y] != null && y > 0 && grid[x, y].gameObject.activeSelf && grid[x, y - 1] == null)
+                {
+                    grid[x, y].transform.position = Vector3.MoveTowards(grid[x, y].transform.position, position[x, y - 1], speed * Time.deltaTime);
 
-                if (grid[x, y] != null)
-                    if (y + 1 < gridHeight && grid[x, y].gameObject.activeSelf && grid[x, y + 1] == null)
+                    if (grid[x, y].transform.position == position[x, y - 1])
                     {
-                        grid[x, y].transform.position = Vector3.MoveTowards(grid[x, y].transform.position, position[x, y + 1], speed * Time.deltaTime);
-
-                        if (grid[x, y].transform.position == position[x, y + 1])
-                        {
-                            grid[x, y + 1] = grid[x, y];
-                            grid[x, y] = null;
-                        }
+                        grid[x, y - 1] = grid[x, y];
+                        grid[x, y] = null;
                     }
+                }
             }
         }
     }
@@ -136,6 +147,13 @@ public class Match3Control : MonoBehaviour
         {
             MoveCurrent();
         }
+
+        if (FolseActiveArray.Count > 0)
+            for (int i = 0; i < FolseActiveArray.Count; i++)
+            {
+                Destroy(FolseActiveArray[i].gameObject);
+                FolseActiveArray.RemoveAt(i);
+            }
     }
 
     Match3Node GetFree(Vector3 pos) // возвращает неактивный узел
@@ -182,7 +200,6 @@ public class Match3Control : MonoBehaviour
         if (current.transform.position == lastPos && last.transform.position == currentPos)
         {
             GridUpdate();
-            current = null;
             last = null;
 
             if (IsLine())
@@ -233,6 +250,7 @@ public class Match3Control : MonoBehaviour
                 current.highlight.SetActive(false);
                 currentPos = current.transform.position;
                 lastPos = last.transform.position;
+                SystemEvent.DoStep();
             }
         }
     }
@@ -298,14 +316,13 @@ public class Match3Control : MonoBehaviour
         grid = new Match3Node[width, height];
 
         float posX = -size * width / 2f - size / 2f;
-        float posY = size * height / 2f - size / 2f;
+        float posY = size * height - size;
 
         position = new Vector3[gridWidth, gridHeight];
         nodeArray = new Match3Node[gridWidth * gridHeight];
+        FolseActiveArray = new List<GameObject>();
 
         float Xreset = posX;
-
-        int z = 0;
 
         int i = 0;
         int id = -1;
@@ -325,13 +342,12 @@ public class Match3Control : MonoBehaviour
 
                 posX += size;
                 grid[x, y] = Instantiate(sample[id], new Vector3(posX, posY, 0), Quaternion.identity, parent);
-                grid[x, y].ready = false;
                 grid[x, y].x = x;
                 grid[x, y].y = y;
+                grid[x, y].ready = false;
                 grid[x, y].gameObject.SetActive(true);
                 grid[x, y].highlight.SetActive(false);
                 position[x, y] = grid[x, y].transform.position;
-                z++;
                 nodeArray[i] = grid[x, y];
                 i++;
             }

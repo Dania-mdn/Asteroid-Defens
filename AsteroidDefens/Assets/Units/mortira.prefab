@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &211416498155926073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4866676819971035289}
+  - component: {fileID: 5069055771350902543}
+  m_Layer: 0
+  m_Name: Active
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4866676819971035289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211416498155926073}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2489461901034971034}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5069055771350902543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211416498155926073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf572e599a44ba4c9437d95beb8caa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parametrs: {fileID: 9086771654920690687}
+  sprites:
+  - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  - {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  - {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
 --- !u!1 &5963252709648446097
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +145,7 @@ GameObject:
   - component: {fileID: 1034943878714893162}
   - component: {fileID: 8294103264115576577}
   - component: {fileID: 3620370871290568816}
+  - component: {fileID: 9086771654920690687}
   m_Layer: 3
   m_Name: mortira
   m_TagString: Untagged
@@ -116,6 +166,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3189888012526094525}
+  - {fileID: 4866676819971035289}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -209,6 +260,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f146a9ee188d35443bc220b266b64615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1034943878714893162}
   highlight: {fileID: 5963252709648446097}
-  id: 2
+  id: 3
+  Active: {fileID: 211416498155926073}
+--- !u!114 &9086771654920690687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655251528981655409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a6f311b5da234499ee49e1aef8d20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LvL: 0

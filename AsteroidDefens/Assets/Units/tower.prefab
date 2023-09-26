@@ -84,6 +84,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4134959956031225068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5867542023690920178}
+  - component: {fileID: 6831281224454706353}
+  m_Layer: 0
+  m_Name: Active
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5867542023690920178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4134959956031225068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7376590495530622598}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6831281224454706353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4134959956031225068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5947e821c3f2c9448aafda89bc9f6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parametrs: {fileID: 563700791172505817}
+  sprites:
+  - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  - {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  - {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
 --- !u!1 &4381739627111083629
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +145,7 @@ GameObject:
   - component: {fileID: 5372348403158803062}
   - component: {fileID: 4019501598264430109}
   - component: {fileID: 8569388782529077612}
+  - component: {fileID: 563700791172505817}
   m_Layer: 3
   m_Name: tower
   m_TagString: Untagged
@@ -116,6 +166,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7536338221593774497}
+  - {fileID: 5867542023690920178}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -209,6 +260,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f146a9ee188d35443bc220b266b64615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 5372348403158803062}
   highlight: {fileID: 1590627391608583053}
-  id: 4
+  id: 5
+  Active: {fileID: 4134959956031225068}
+--- !u!114 &563700791172505817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4381739627111083629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a6f311b5da234499ee49e1aef8d20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LvL: 0
