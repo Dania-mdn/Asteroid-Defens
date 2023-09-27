@@ -21,7 +21,7 @@ public class Match3Control : MonoBehaviour
     private Vector3[,] position;
     private Match3Node current, last;
     private Vector3 currentPos, lastPos;
-    private List<Match3Node> lines;
+    private List<List<Match3Node>> lines;
     private bool isLines, isMove;
     private float timeout;
     private bool isClick = false;
@@ -50,28 +50,34 @@ public class Match3Control : MonoBehaviour
                 // здесь можно подсчитывать очки +1
                 if (current != null)
                 {
-                    if (lines[i] != current)
+                    for (int j = 0; j < lines[i].Count; j++)
                     {
-                        lines[i].gameObject.SetActive(false);
-                        grid[lines[i].x, lines[i].y] = null;
-                        FolseActiveArray.Add(lines[i].gameObject);
-                    }
-                    else
-                    {
-                        current.AddLvL();
+                        if (lines[i][j] != current)
+                        {
+                            lines[i][j].gameObject.SetActive(false);
+                            grid[lines[i][j].x, lines[i][j].y] = null;
+                            FolseActiveArray.Add(lines[i][j].gameObject);
+                        }
+                        else
+                        {
+                            current.AddLvL();
+                        }
                     }
                 }
                 else
                 {
                     if (i == 0)
                     {
-                        lines[0].AddLvL();
+                        lines[i][i].AddLvL();
                     }
                     else
                     {
-                        lines[i].gameObject.SetActive(false);
-                        grid[lines[i].x, lines[i].y] = null;
-                        FolseActiveArray.Add(lines[i].gameObject);
+                        for (int j = 0; j < lines[i].Count; j++)
+                        {
+                            lines[i][j].gameObject.SetActive(false);
+                            grid[lines[i][j].x, lines[i][j].y] = null;
+                            FolseActiveArray.Add(lines[i][j].gameObject);
+                        }
                     }
                 }
             }
@@ -156,8 +162,8 @@ public class Match3Control : MonoBehaviour
                 Destroy(FolseActiveArray[i].gameObject);
                 FolseActiveArray.RemoveAt(i);
             }
-            SystemEvent.DoFullStep();
         }
+        SystemEvent.DoFullStep();
     }
 
     Match3Node GetFree(Vector3 pos) // возвращает неактивный узел
@@ -268,7 +274,8 @@ public class Match3Control : MonoBehaviour
     {
         int j = -1;
 
-        lines = new List<Match3Node>();
+        lines = new List<List<Match3Node>>(); 
+        List<Match3Node> innerList;
 
         for (int y = 0; y < gridHeight; y++)
         {
@@ -276,15 +283,18 @@ public class Match3Control : MonoBehaviour
             {
                 if (x + 2 < gridWidth && j < 0 && grid[x + 1, y].id == grid[x, y].id && grid[x + 2, y].id == grid[x, y].id)
                 {
-                    j = grid[x, y].id;
+                    j = grid[x, y].id; 
                 }
+
+                innerList = new List<Match3Node>();
 
                 if (j == grid[x, y].id)
                 {
-                    lines.Add(grid[x, y]);
+                    innerList.Add(grid[x, y]);
                 }
                 else
                 {
+                    lines.Add(innerList);
                     j = -1;
                 }
             }
@@ -303,12 +313,15 @@ public class Match3Control : MonoBehaviour
                     j = grid[y, x].id;
                 }
 
+                innerList = new List<Match3Node>();
+
                 if (j == grid[y, x].id)
                 {
-                    lines.Add(grid[y, x]);
+                    innerList.Add(grid[y, x]);
                 }
                 else
                 {
+                    lines.Add(innerList);
                     j = -1;
                 }
             }

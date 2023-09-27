@@ -17,13 +17,16 @@ public class AsteroidController : MonoBehaviour
     private int SpawnAsteroidCount;
     private bool IsSpawn = false;
     private bool endGame = false;
+    private int AttackCount;
 
+    public GameObject BigAsteroid;
+    private int BigAsteroidDirectionl;
     public GameObject Asteroid;
     public List<GameObject> Asteroids;
 
     private void OnEnable()
     {
-       SystemEvent.EndStep += SetIsSpawn;
+        SystemEvent.EndStep += SetIsSpawn;
         SystemEvent.HitPlayer += SetList;
         SystemEvent.EndGame += EndGame;
     }
@@ -51,14 +54,23 @@ public class AsteroidController : MonoBehaviour
     {
         if (!IsSpawn) return;
 
-        if(timer < 0)
+        if(AttackCount % 10 == 0)
         {
-            GeneretedAsteroid();
-            timer = coldawn;
+            Instantiate(BigAsteroid, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
+            SetIsSpawn(false);
+            AttackCount++;
         }
         else
         {
-            timer = timer - Time.deltaTime;
+            if (timer < 0)
+            {
+                GeneretedAsteroid();
+                timer = coldawn;
+            }
+            else
+            {
+                timer = timer - Time.deltaTime;
+            }
         }
     }
     private void GeneretedAsteroid()
@@ -74,6 +86,8 @@ public class AsteroidController : MonoBehaviour
             SetIsSpawn(false);
             SpawnAsteroidCount = 0;
             asteroidCount = asteroidCount + UpdateAsteroidCount;
+            AttackCount++;
+            BigAsteroidDirectionl = Random.Range(0, widtharray.Length);
         }
     }
     private void SetIsSpawn(bool isSpawn)

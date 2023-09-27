@@ -2162,6 +2162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coldawn: 0.3
+  BigAsteroid: {fileID: 5799658218142349096, guid: 753046559211455469ba179c8e8ce834, type: 3}
   Asteroid: {fileID: 48042333866156429, guid: 226e6d4e04192e04ea1861cd0c7b742d, type: 3}
   Asteroids: []
 --- !u!1 &2038561681
