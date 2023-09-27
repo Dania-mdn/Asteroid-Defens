@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+public class BigAsteroid : MonoBehaviour
 {
     public int speed;
     void Update()
@@ -14,7 +14,7 @@ public class Asteroid : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            SystemEvent.DoHitPlayer(gameObject);
+            SystemEvent.DoEndGame();
         }
     }
 }

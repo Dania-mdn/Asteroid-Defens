@@ -24,6 +24,7 @@ public class Match3Control : MonoBehaviour
     private List<Match3Node> lines;
     private bool isLines, isMove;
     private float timeout;
+    private bool isClick = false;
 
     void Start()
     {
@@ -149,11 +150,14 @@ public class Match3Control : MonoBehaviour
         }
 
         if (FolseActiveArray.Count > 0)
+        {
             for (int i = 0; i < FolseActiveArray.Count; i++)
             {
                 Destroy(FolseActiveArray[i].gameObject);
                 FolseActiveArray.RemoveAt(i);
             }
+            SystemEvent.DoFullStep();
+        }
     }
 
     Match3Node GetFree(Vector3 pos) // возвращает неактивный узел
@@ -189,6 +193,11 @@ public class Match3Control : MonoBehaviour
                     grid[x, y].y = y;
                 }
             }
+        }
+        if (isClick)
+        {
+            SystemEvent.DoStep();
+            isClick = false;
         }
     }
 
@@ -250,8 +259,8 @@ public class Match3Control : MonoBehaviour
                 current.highlight.SetActive(false);
                 currentPos = current.transform.position;
                 lastPos = last.transform.position;
-                SystemEvent.DoStep();
             }
+            isClick = true;
         }
     }
 

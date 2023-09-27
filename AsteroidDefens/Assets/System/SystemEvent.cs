@@ -6,9 +6,11 @@ public class SystemEvent : MonoBehaviour
 {
     public static event Action Upgrade;
     public static event Action Step;
-    public static event Action EndStep;
-    public static event Action HitPlayer;
+    public static event Action<bool> EndStep;
+    public static event Action<GameObject> HitPlayer;
     public static event Action EndGame;
+    public static event Action StartStep;
+    public static event Action FullStep;
     public static void DoUpgrade()
     {
         Upgrade?.Invoke();
@@ -17,16 +19,24 @@ public class SystemEvent : MonoBehaviour
     {
         Step?.Invoke();
     }
-    public static void DoEndStep()
+    public static void DoEndStep(bool IsSpawns)
     {
-        EndStep?.Invoke();
+        EndStep?.Invoke(IsSpawns);
     }
-    public static void DoHitPlayer()
+    public static void DoHitPlayer(GameObject Asteroid)
     {
-        HitPlayer?.Invoke();
+        HitPlayer?.Invoke(Asteroid);
     }
     public static void DoEndGame()
     {
         EndGame?.Invoke();
+    }
+    public static void DoStartStep()
+    {
+        StartStep?.Invoke();
+    }
+    public static void DoFullStep()
+    {
+        FullStep?.Invoke();
     }
 }
