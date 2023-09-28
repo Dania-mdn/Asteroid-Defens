@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Match3Control : MonoBehaviour
@@ -21,7 +22,7 @@ public class Match3Control : MonoBehaviour
     private Vector3[,] position;
     private Match3Node current, last;
     private Vector3 currentPos, lastPos;
-    private List<List<Match3Node>> lines;
+    public List<List<Match3Node>> liness;
     private bool isLines, isMove;
     private float timeout;
     private bool isClick = false;
@@ -45,38 +46,35 @@ public class Match3Control : MonoBehaviour
 
         if (timeout > destroyTimeout)
         {
-            for (int i = 0; i < lines.Count; i++)
+            for (int i = 0; i < liness.Count; i++)
             {
                 // здесь можно подсчитывать очки +1
-                if (current != null)
+                for (int j = 0; j < liness[i].Count; j++)
                 {
-                    for (int j = 0; j < lines[i].Count; j++)
+                    if (current != null)
                     {
-                        if (lines[i][j] != current)
+                        if (liness[i][j] != current)
                         {
-                            lines[i][j].gameObject.SetActive(false);
-                            grid[lines[i][j].x, lines[i][j].y] = null;
-                            FolseActiveArray.Add(lines[i][j].gameObject);
+                            liness[i][j].gameObject.SetActive(false);
+                            grid[liness[i][j].x, liness[i][j].y] = null;
+                            FolseActiveArray.Add(liness[i][j].gameObject);
                         }
                         else
                         {
                             current.AddLvL();
                         }
                     }
-                }
-                else
-                {
-                    if (i == 0)
-                    {
-                        lines[i][i].AddLvL();
-                    }
                     else
                     {
-                        for (int j = 0; j < lines[i].Count; j++)
+                        if (i == 0)
                         {
-                            lines[i][j].gameObject.SetActive(false);
-                            grid[lines[i][j].x, lines[i][j].y] = null;
-                            FolseActiveArray.Add(lines[i][j].gameObject);
+                            liness[0][0].AddLvL();
+                        }
+                        else
+                        {
+                            liness[i][j].gameObject.SetActive(false);
+                            grid[liness[i][j].x, liness[i][j].y] = null;
+                            FolseActiveArray.Add(liness[i][j].gameObject);
                         }
                     }
                 }
@@ -272,64 +270,63 @@ public class Match3Control : MonoBehaviour
 
     bool IsLine() // поиск совпадений по горизонтали и вертикали
     {
-        int j = -1;
-
-        lines = new List<List<Match3Node>>(); 
-        List<Match3Node> innerList;
+        liness = new List<List<Match3Node>>();
 
         for (int y = 0; y < gridHeight; y++)
         {
             for (int x = 0; x < gridWidth; x++)
             {
-                if (x + 2 < gridWidth && j < 0 && grid[x + 1, y].id == grid[x, y].id && grid[x + 2, y].id == grid[x, y].id)
+                if (x + 2 < gridHeight && grid[x + 1, y].id == grid[x, y].id && grid[x + 2, y].id == grid[x, y].id && liness.Any(list => list.Contains(grid[x, y])) == false)
                 {
-                    j = grid[x, y].id; 
-                }
-
-                innerList = new List<Match3Node>();
-
-                if (j == grid[x, y].id)
-                {
-                    innerList.Add(grid[x, y]);
-                }
-                else
-                {
-                    lines.Add(innerList);
-                    j = -1;
+                    Debug.Log(0);
+                    List<Match3Node> innerList = new List<Match3Node>();
+                    int start = grid[x, y].x;
+                    for (int xx = start; xx < gridWidth; xx++)
+                    {
+                        if (grid[xx, y].id == grid[start, y].id)
+                        {
+                            Debug.Log(1);
+                            Debug.Log(grid[xx, y]);
+                            innerList.Add(grid[xx, y]);
+                        }
+                        else
+                        {
+                            liness.Add(innerList);
+                            break;
+                        }
+                    }
                 }
             }
-
-            j = -1;
         }
-
-        j = -1;
 
         for (int y = 0; y < gridWidth; y++)
         {
             for (int x = 0; x < gridHeight; x++)
             {
-                if (x + 2 < gridHeight && j < 0 && grid[y, x + 1].id == grid[y, x].id && grid[y, x + 2].id == grid[y, x].id)
+                if (x + 2 < gridHeight && grid[y, x + 1].id == grid[y, x].id && grid[y, x + 2].id == grid[y, x].id && liness.Any(list => list.Contains(grid[y, x])) == false)
                 {
-                    j = grid[y, x].id;
-                }
-
-                innerList = new List<Match3Node>();
-
-                if (j == grid[y, x].id)
-                {
-                    innerList.Add(grid[y, x]);
-                }
-                else
-                {
-                    lines.Add(innerList);
-                    j = -1;
+                    Debug.Log(0);
+                    List<Match3Node> innerList = new List<Match3Node>();
+                    int start = grid[x, y].x;
+                    for (int xx = start; xx < gridHeight; xx++)
+                    {
+                        if (grid[y, xx].id == grid[y, start].id)
+                        {
+                            Debug.Log(1);
+                            Debug.Log(grid[xx, y]);
+                            innerList.Add(grid[y, xx]);
+                        }
+                        else
+                        {
+                            liness.Add(innerList);
+                            break;
+                        }
+                    }
                 }
             }
-
-            j = -1;
         }
 
-        return (lines.Count > 0) ? true : false;
+        return (liness.Count > 0) ? true : false;
     }
 
     // функция создания 2D массива на основе шаблона

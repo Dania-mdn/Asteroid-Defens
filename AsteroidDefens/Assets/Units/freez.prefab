@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parametrs: {fileID: 5963101463616190128}
+  spriteRenderer: {fileID: 1669065221369710271}
   sprites:
   - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   - {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
@@ -260,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f146a9ee188d35443bc220b266b64615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1669065221369710271}
   highlight: {fileID: 5455218961422243652}
   id: 1
   Active: {fileID: 5089639452419726073}
@@ -277,3 +277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LvL: 0
+  Damage: 
+  Firerate: 
+  Sloudawn: 

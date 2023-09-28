@@ -143,6 +143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LvL: 0
+  Damage: 
+  Firerate: 
+  Sloudawn: 
 --- !u!1 &1506989923661308073
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parametrs: {fileID: 2704557304815957379}
+  spriteRenderer: {fileID: 9110079764492103373}
   sprites:
   - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   - {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}

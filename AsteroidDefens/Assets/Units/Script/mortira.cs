@@ -6,7 +6,7 @@ public class mortira : MonoBehaviour
 {
     public parametrs parametrs;
 
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
 
     private void OnEnable()
@@ -19,7 +19,6 @@ public class mortira : MonoBehaviour
     }
     private void Start()
     {
-        spriteRenderer = transform.parent.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprites[0];
     }
 
