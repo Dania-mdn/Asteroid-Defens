@@ -8,5 +8,6 @@ public class parametrs : MonoBehaviour
 
     public int[] Damage;
     public int[] Firerate;
-    public int[] Sloudawn;
+    public float[] Freez;
+    public int[] Step;
 }

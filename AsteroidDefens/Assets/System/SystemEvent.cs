@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class SystemEvent : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SystemEvent : MonoBehaviour
     public static event Action EndGame;
     public static event Action StartStep;
     public static event Action FullStep;
+    public static event Action<int> AddStep;
+    public static event Action CloseStep;
     public static void DoUpgrade()
     {
         Upgrade?.Invoke();
@@ -38,5 +41,13 @@ public class SystemEvent : MonoBehaviour
     public static void DoFullStep()
     {
         FullStep?.Invoke();
+    }
+    public static void DoAddStep(int step)
+    {
+        AddStep?.Invoke(step);
+    }
+    public static void DoCloseStep()
+    {
+        CloseStep?.Invoke();
     }
 }

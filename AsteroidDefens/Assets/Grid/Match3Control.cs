@@ -20,7 +20,7 @@ public class Match3Control : MonoBehaviour
     private Match3Node[] nodeArray;
     private List<GameObject> FolseActiveArray;
     private Vector3[,] position;
-    private Match3Node current, last;
+    private Match3Node current, lastt, last;
     private Vector3 currentPos, lastPos;
     public List<List<Match3Node>> liness;
     private bool isLines, isMove;
@@ -48,27 +48,30 @@ public class Match3Control : MonoBehaviour
         {
             for (int i = 0; i < liness.Count; i++)
             {
-                // здесь можно подсчитывать очки +1
-                for (int j = 0; j < liness[i].Count; j++)
+                if (current != null)
                 {
-                    if (current != null)
+                    for (int j = 0; j < liness[i].Count; j++)
                     {
-                        if (liness[i][j] != current)
+                        if (liness[i][j] == current || liness[i][j] == lastt)
+                        {
+                            liness[i][j].AddLvL();
+                            current = null;
+                        }
+                        else
                         {
                             liness[i][j].gameObject.SetActive(false);
                             grid[liness[i][j].x, liness[i][j].y] = null;
                             FolseActiveArray.Add(liness[i][j].gameObject);
                         }
-                        else
-                        {
-                            current.AddLvL();
-                        }
                     }
-                    else
+                }
+                else
+                {
+                    for (int j = 0; j < liness[i].Count; j++)
                     {
-                        if (i == 0)
+                        if (j == 0)
                         {
-                            liness[0][0].AddLvL();
+                            liness[i][j].AddLvL();
                         }
                         else
                         {
@@ -160,8 +163,10 @@ public class Match3Control : MonoBehaviour
                 Destroy(FolseActiveArray[i].gameObject);
                 FolseActiveArray.RemoveAt(i);
             }
+            current = null;
         }
-        SystemEvent.DoFullStep();
+        if(!isLines)
+            SystemEvent.DoFullStep();
     }
 
     Match3Node GetFree(Vector3 pos) // возвращает неактивный узел
@@ -238,16 +243,37 @@ public class Match3Control : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, layerMask);
-
+            
             if (hit.transform != null && current == null)
             {
+                if (hit.transform.GetComponentInChildren<step>() != null)
+                {
+                    step step = hit.transform.GetComponentInChildren<step>();
+                    step.SetOpen();
+                }
+                else
+                {
+                    SystemEvent.DoCloseStep();
+                }
+
                 current = hit.transform.GetComponent<Match3Node>();
                 SetNode(current, true);
                 current.highlight.SetActive(true);
             }
             else if (hit.transform != null && current != null)
             {
+                if(hit.transform.GetComponentInChildren<step>() != null)
+                {
+                    step step = hit.transform.GetComponentInChildren<step>();
+                    step.SetOpen();
+                }
+                else
+                {
+                    SystemEvent.DoCloseStep();
+                }
+
                 last = hit.transform.GetComponent<Match3Node>();
+                lastt = hit.transform.GetComponent<Match3Node>();
 
                 if (last != null && !last.ready)
                 {
@@ -278,23 +304,21 @@ public class Match3Control : MonoBehaviour
             {
                 if (x + 2 < gridHeight && grid[x + 1, y].id == grid[x, y].id && grid[x + 2, y].id == grid[x, y].id && liness.Any(list => list.Contains(grid[x, y])) == false)
                 {
-                    Debug.Log(0);
                     List<Match3Node> innerList = new List<Match3Node>();
                     int start = grid[x, y].x;
                     for (int xx = start; xx < gridWidth; xx++)
                     {
                         if (grid[xx, y].id == grid[start, y].id)
                         {
-                            Debug.Log(1);
-                            Debug.Log(grid[xx, y]);
                             innerList.Add(grid[xx, y]);
                         }
                         else
                         {
-                            liness.Add(innerList);
                             break;
                         }
                     }
+                    liness.Add(innerList);
+                    break;
                 }
             }
         }
@@ -305,27 +329,27 @@ public class Match3Control : MonoBehaviour
             {
                 if (x + 2 < gridHeight && grid[y, x + 1].id == grid[y, x].id && grid[y, x + 2].id == grid[y, x].id && liness.Any(list => list.Contains(grid[y, x])) == false)
                 {
-                    Debug.Log(0);
                     List<Match3Node> innerList = new List<Match3Node>();
                     int start = grid[x, y].x;
                     for (int xx = start; xx < gridHeight; xx++)
                     {
                         if (grid[y, xx].id == grid[y, start].id)
                         {
-                            Debug.Log(1);
-                            Debug.Log(grid[xx, y]);
                             innerList.Add(grid[y, xx]);
                         }
                         else
                         {
-                            liness.Add(innerList);
                             break;
                         }
                     }
+                    liness.Add(innerList);
+                    break;
                 }
             }
         }
-
+        //for (int y = 0; y < liness.Count; y++)
+        //for (int x = 0; x < liness[y].Count; x++)
+        //    Debug.Log(y + " " + x + " " + liness[y][x].name);
         return (liness.Count > 0) ? true : false;
     }
 

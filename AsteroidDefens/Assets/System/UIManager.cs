@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
         SystemEvent.StartStep += StartStep;
         SystemEvent.FullStep += FullStep;
         SystemEvent.EndGame += SetGameOwer;
+        SystemEvent.AddStep += AddStep;
     }
     private void OnDisable()
     {
@@ -32,6 +33,7 @@ public class UIManager : MonoBehaviour
         SystemEvent.StartStep -= StartStep;
         SystemEvent.FullStep -= FullStep;
         SystemEvent.EndGame -= SetGameOwer;
+        SystemEvent.AddStep -= AddStep;
     }
     private void Start()
     {
@@ -83,5 +85,10 @@ public class UIManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(0);
+    }
+    public void AddStep(int step)
+    {
+        StepCount = StepCount + step;
+        Step.text = StepCount.ToString();
     }
 }

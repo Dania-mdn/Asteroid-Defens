@@ -29,4 +29,20 @@ public class Freez : MonoBehaviour
             spriteRenderer.sprite = sprites[parametrs.LvL - 1];
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            Asteroid asteroid = collision.gameObject.GetComponent<Asteroid>();
+            asteroid.speed = parametrs.Freez[parametrs.LvL];
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            Asteroid asteroid = collision.gameObject.GetComponent<Asteroid>();
+            asteroid.speed = asteroid.Defoltspeed;
+        }
+    }
 }

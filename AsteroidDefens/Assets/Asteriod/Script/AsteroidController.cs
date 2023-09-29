@@ -17,7 +17,7 @@ public class AsteroidController : MonoBehaviour
     private int SpawnAsteroidCount;
     private bool IsSpawn = false;
     private bool endGame = false;
-    private int AttackCount;
+    public int AttackCount;
 
     public GameObject BigAsteroid;
     private int BigAsteroidDirectionl;
@@ -54,7 +54,7 @@ public class AsteroidController : MonoBehaviour
     {
         if (!IsSpawn) return;
 
-        if(AttackCount % 10 == 0)
+        if(AttackCount != 0 && AttackCount % 10 == 0)
         {
             Instantiate(BigAsteroid, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
             SetIsSpawn(false);
