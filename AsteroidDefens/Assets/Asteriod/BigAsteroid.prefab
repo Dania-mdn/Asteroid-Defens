@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9032324696216579156}
   - component: {fileID: 1404245267235611161}
   - component: {fileID: 4780224793724993255}
-  - component: {fileID: 7116527792306976659}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7116527792306976659
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5728278762474420991}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5799658218142349096
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +95,7 @@ GameObject:
   - component: {fileID: 7177283902907003247}
   - component: {fileID: 5419646323669461621}
   - component: {fileID: 3682778633082414880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BigAsteroid
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -147,7 +133,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.15}
   serializedVersion: 2
-  m_Radius: 0.38
+  m_Radius: 0.22
 --- !u!50 &5419646323669461621
 Rigidbody2D:
   serializedVersion: 4
@@ -181,5 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5963b3605a6e50b408a12c88ae7dc6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Defoltspeed: 2
+  rotationSpeed: 45
+  model: {fileID: 5728278762474420991}
+  Defoltspeed: 1
   speed: 0
+  Helth: 5
+  Boss: 1
+  asteroidController: {fileID: 0}

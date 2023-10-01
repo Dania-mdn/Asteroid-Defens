@@ -5,10 +5,11 @@ using UnityEngine;
 public class step : MonoBehaviour
 {
     public parametrs parametrs;
+    public Match3Control Match3Control;
 
     public SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
-    private bool IsOpen = false;
+    public bool IsOpen = false;
 
     private void OnEnable()
     {
@@ -39,7 +40,6 @@ public class step : MonoBehaviour
         else
         {
             AddStep();
-            Destroy(transform.parent);
         }
     }
     public void SetClosen()

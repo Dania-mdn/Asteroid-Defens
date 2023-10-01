@@ -12,27 +12,31 @@ public class AsteroidController : MonoBehaviour
 
     public float coldawn = 0.2f;
     private float timer;
-    private int asteroidCount = 4;
+    public int asteroidCount = 4;
     private int UpdateAsteroidCount = 3;
     private int SpawnAsteroidCount;
     private bool IsSpawn = false;
     private bool endGame = false;
-    public int AttackCount;
+    public int AttackCount = 1;
 
     public GameObject BigAsteroid;
     private int BigAsteroidDirectionl;
     public GameObject Asteroid;
     public List<GameObject> Asteroids;
+    public GameObject BossDirection;
+    private GameObject BossDirectionMediate;
 
     private void OnEnable()
     {
         SystemEvent.EndStep += SetIsSpawn;
+        SystemEvent.DestroyAsteroid += SetList;
         SystemEvent.HitPlayer += SetList;
         SystemEvent.EndGame += EndGame;
     }
     private void OnDisable()
     {
         SystemEvent.EndStep -= SetIsSpawn;
+        SystemEvent.DestroyAsteroid -= SetList;
         SystemEvent.HitPlayer -= SetList;
         SystemEvent.EndGame -= EndGame;
     }
@@ -54,9 +58,11 @@ public class AsteroidController : MonoBehaviour
     {
         if (!IsSpawn) return;
 
-        if(AttackCount != 0 && AttackCount % 10 == 0)
+        if(AttackCount % 10 == 0)
         {
-            Instantiate(BigAsteroid, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
+            GameObject MediateAsteroid;
+            MediateAsteroid = Instantiate(BigAsteroid, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
+            MediateAsteroid.GetComponent<Asteroid>().asteroidController = this;
             SetIsSpawn(false);
             AttackCount++;
         }
@@ -93,13 +99,20 @@ public class AsteroidController : MonoBehaviour
     private void SetIsSpawn(bool isSpawn)
     {
         IsSpawn = isSpawn;
+        if (isSpawn)
+            if (BossDirectionMediate)
+                Destroy(BossDirectionMediate);
     }
     private void SetList(GameObject Asteroid)
     {
         Asteroids.Remove(Asteroid);
 
         if (Asteroids.Count == 0 && !endGame)
+        {
             SystemEvent.DoStartStep();
+            if(AttackCount % 10 == 0)
+                BossDirectionMediate = Instantiate(BossDirection, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
+        }
     }
     private void EndGame()
     {

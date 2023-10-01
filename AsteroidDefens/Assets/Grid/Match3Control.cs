@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Match3Control : MonoBehaviour
 {
-    private enum Mode { MatchOnly, FreeMove };
-
     [SerializeField] private float speed = 5.5f; // скорость движения объектов
     [SerializeField] private float destroyTimeout = .5f; // пауза в секундах, перед тем как уничтожить совпадения
     [SerializeField] private LayerMask layerMask; // маска узла (префаба)
@@ -37,6 +35,14 @@ public class Match3Control : MonoBehaviour
             timeout = 0;
             isLines = true;
         }
+    }
+    public void delete(Match3Node match3Node)
+    {
+        match3Node.gameObject.SetActive(false);
+        grid[match3Node.x, match3Node.y] = null;
+        FolseActiveArray.Add(match3Node.gameObject);
+        isMove = true;
+        isLines = false;
     }
     void DestroyLines() // уничтожаем совпадения с задержкой
     {
@@ -156,15 +162,6 @@ public class Match3Control : MonoBehaviour
             MoveCurrent();
         }
 
-        if (FolseActiveArray.Count > 0)
-        {
-            for (int i = 0; i < FolseActiveArray.Count; i++)
-            {
-                Destroy(FolseActiveArray[i].gameObject);
-                FolseActiveArray.RemoveAt(i);
-            }
-            current = null;
-        }
         if(!isLines)
             SystemEvent.DoFullStep();
     }
@@ -201,6 +198,14 @@ public class Match3Control : MonoBehaviour
                     grid[x, y].x = x;
                     grid[x, y].y = y;
                 }
+            }
+        }
+        if (FolseActiveArray.Count > 0)
+        {
+            for (int i = 0; i < FolseActiveArray.Count; i++)
+            {
+                Destroy(FolseActiveArray[i].gameObject);
+                FolseActiveArray.RemoveAt(i);
             }
         }
         if (isClick)
@@ -264,8 +269,18 @@ public class Match3Control : MonoBehaviour
             {
                 if(hit.transform.GetComponentInChildren<step>() != null)
                 {
+                    current = hit.transform.GetComponent<Match3Node>();
                     step step = hit.transform.GetComponentInChildren<step>();
-                    step.SetOpen();
+                    if (step.IsOpen)
+                    {
+                        //isLines = true;
+                        step.SetOpen();
+                        delete(current);
+                    }
+                    else
+                    {
+                        step.SetOpen();
+                    }
                 }
                 else
                 {

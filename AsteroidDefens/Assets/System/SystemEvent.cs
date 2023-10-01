@@ -12,8 +12,12 @@ public class SystemEvent : MonoBehaviour
     public static event Action EndGame;
     public static event Action StartStep;
     public static event Action FullStep;
+    public static event Action<GameObject> DestroyAsteroid;
     public static event Action<int> AddStep;
     public static event Action CloseStep;
+    public static event Action<float> SpawnBoss;
+    public static event Action DestroyBoss;
+    public static event Action<float> HitBoss;
     public static void DoUpgrade()
     {
         Upgrade?.Invoke();
@@ -29,6 +33,10 @@ public class SystemEvent : MonoBehaviour
     public static void DoHitPlayer(GameObject Asteroid)
     {
         HitPlayer?.Invoke(Asteroid);
+    }
+    public static void DoDestroyAsteroid(GameObject Asteroid)
+    {
+        DestroyAsteroid?.Invoke(Asteroid);
     }
     public static void DoEndGame()
     {
@@ -49,5 +57,17 @@ public class SystemEvent : MonoBehaviour
     public static void DoCloseStep()
     {
         CloseStep?.Invoke();
+    }
+    public static void DoSpawnBoss(float hp)
+    {
+        SpawnBoss?.Invoke(hp);
+    }
+    public static void DoDestroyBoss()
+    {
+        DestroyBoss?.Invoke();
+    }
+    public static void DoHitBoss(float Hp)
+    {
+        HitBoss?.Invoke(Hp);
     }
 }

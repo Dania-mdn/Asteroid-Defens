@@ -10,12 +10,19 @@ public class UIManager : MonoBehaviour
     public Slider Health;
     public int HealthCount = 5;
     public TextMeshProUGUI Step;
+    private int day = 1;
+    public TextMeshProUGUI Day;
+    public TextMeshProUGUI[] DayPanel;
+    private int record;
+    public TextMeshProUGUI[] recordPanel;
     public int DefoltStepCount = 5;
     public int StepCount;
 
     public Match3Control Match3Control;
 
     public GameObject GameOwer;
+
+    public Slider BossHealth;
 
     private void OnEnable()
     {
@@ -25,6 +32,9 @@ public class UIManager : MonoBehaviour
         SystemEvent.FullStep += FullStep;
         SystemEvent.EndGame += SetGameOwer;
         SystemEvent.AddStep += AddStep;
+        SystemEvent.SpawnBoss += SpawnBoss;
+        SystemEvent.DestroyBoss += DestroyBoss;
+        SystemEvent.HitBoss += HitBoss;
     }
     private void OnDisable()
     {
@@ -34,6 +44,9 @@ public class UIManager : MonoBehaviour
         SystemEvent.FullStep -= FullStep;
         SystemEvent.EndGame -= SetGameOwer;
         SystemEvent.AddStep -= AddStep;
+        SystemEvent.SpawnBoss -= SpawnBoss;
+        SystemEvent.DestroyBoss -= DestroyBoss;
+        SystemEvent.HitBoss -= HitBoss;
     }
     private void Start()
     {
@@ -41,6 +54,8 @@ public class UIManager : MonoBehaviour
         Health.value = HealthCount;
         StepCount = DefoltStepCount;
         Step.text = StepCount.ToString();
+        Day.text = day.ToString(); 
+        record = PlayerPrefs.GetInt("record");
     }
     private void SetStep()
     {
@@ -70,16 +85,35 @@ public class UIManager : MonoBehaviour
     }
     private void SetGameOwer()
     {
+        DayPanel[1].text = day.ToString();
+        if (PlayerPrefs.HasKey("record"))
+        {
+            if (day > PlayerPrefs.GetInt("record"))
+            {
+                record = day;
+                PlayerPrefs.SetInt("record", record);
+            }
+        }
+        else
+        {
+            record = day;
+            PlayerPrefs.SetInt("record", record);
+        }
+        recordPanel[1].text = record.ToString();
         GameOwer.SetActive(true);
     }
     private void StartStep()
     {
+        day++;
+        Day.text = day.ToString();
         StepCount = DefoltStepCount;
         Step.text = StepCount.ToString();
         Match3Control.enabled = true;
     }
     public void pausa(int timescale)
     {
+        DayPanel[0].text = day.ToString();
+        recordPanel[0].text = record.ToString();
         Time.timeScale = timescale;
     }
     public void Restart()
@@ -90,5 +124,18 @@ public class UIManager : MonoBehaviour
     {
         StepCount = StepCount + step;
         Step.text = StepCount.ToString();
+    }
+    private void SpawnBoss(float hp)
+    {
+        BossHealth.gameObject.SetActive(true);
+        BossHealth.maxValue = hp;
+    }
+    private void HitBoss(float hp)
+    {
+        BossHealth.value = hp;
+    }
+    private void DestroyBoss()
+    {
+        BossHealth.gameObject.SetActive(false);
     }
 }
