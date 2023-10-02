@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -269,11 +268,11 @@ public class Match3Control : MonoBehaviour
             {
                 if(hit.transform.GetComponentInChildren<step>() != null)
                 {
-                    current = hit.transform.GetComponent<Match3Node>();
+                    //current = hit.transform.GetComponent<Match3Node>();
                     step step = hit.transform.GetComponentInChildren<step>();
                     if (step.IsOpen)
                     {
-                        //isLines = true;
+                        isLines = true;
                         step.SetOpen();
                         delete(current);
                     }
