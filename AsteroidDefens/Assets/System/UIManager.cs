@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
     public GameObject GameOwer;
 
     public Slider BossHealth;
-    private Animation AnimShield;
 
     private void OnEnable()
     {
@@ -49,7 +48,6 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        AnimShield = GetComponent<Animation>();
         Health.maxValue = HealthCount;
         Health.value = HealthCount;
         StepCount = DefoltStepCount;
@@ -81,13 +79,6 @@ public class UIManager : MonoBehaviour
         if(HealthCount == 0)
         {
             SystemEvent.DoEndGame();
-        }
-
-        Debug.Log(0);
-        if (!AnimShield.isPlaying)
-        {
-            Debug.Log(AnimShield.isPlaying);
-            AnimShield.Play();
         }
     }
     private void SetGameOwer()
