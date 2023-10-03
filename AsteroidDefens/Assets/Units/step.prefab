@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LvL: 0
-  Damage: 
-  Firerate: 
+  Damage: []
+  Firerate: []
   Freez: []
   Step: 0000000007000000130000002200000034000000
 --- !u!1 &8909719363863671690
@@ -277,11 +277,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parametrs: {fileID: 5414939562919560809}
+  Match3Control: {fileID: 0}
   spriteRenderer: {fileID: 6500378907285792064}
   sprites:
   - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   - {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   - {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  IsOpen: 0
 --- !u!61 &6902965140703973878
 BoxCollider2D:
   m_ObjectHideFlags: 0

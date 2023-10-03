@@ -96,9 +96,9 @@ MonoBehaviour:
   parametrs: {fileID: 9086771654920690687}
   spriteRenderer: {fileID: 1034943878714893162}
   sprites:
-  - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  - {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  - {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  - {fileID: 269434474, guid: 0efcdc5039d2b854f93c5b1f4e0fb655, type: 3}
+  - {fileID: 344945079, guid: 0efcdc5039d2b854f93c5b1f4e0fb655, type: 3}
+  - {fileID: -931662525, guid: 0efcdc5039d2b854f93c5b1f4e0fb655, type: 3}
   bulet: {fileID: 618950062458659088, guid: 97313bb00eab67c40bd4e3b81127b6fc, type: 3}
 --- !u!1 &5963252709648446097
 GameObject:
@@ -263,7 +263,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.60840523, g: 0.2474635, b: 0.7830189, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -131,10 +131,10 @@ TextureImporter:
       name: spaceship_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 1549
-        width: 191
-        height: 191
+        x: 87
+        y: 2127
+        width: 193
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: spaceship_1
       rect:
         serializedVersion: 2
-        x: 303
-        y: 1486
-        width: 595
-        height: 263
+        x: 302
+        y: 2063
+        width: 597
+        height: 266
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: spaceship_2
       rect:
         serializedVersion: 2
-        x: 921
-        y: 1691
-        width: 366
-        height: 34
+        x: 920
+        y: 2268
+        width: 368
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: spaceship_3
       rect:
         serializedVersion: 2
-        x: 917
-        y: 1577
-        width: 422
-        height: 91
+        x: 916
+        y: 2155
+        width: 424
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: spaceship_4
       rect:
         serializedVersion: 2
-        x: 21
-        y: 378
-        width: 958
-        height: 1096
+        x: 20
+        y: 955
+        width: 961
+        height: 1099
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: spaceship_5
       rect:
         serializedVersion: 2
-        x: 990
-        y: 348
-        width: 958
-        height: 1096
+        x: 989
+        y: 925
+        width: 960
+        height: 1099
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,6 +249,132 @@ TextureImporter:
       bones: []
       spriteID: ba16a908204936e4c92a4319519cf431
       internalID: 398374340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spaceship_6
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 822
+        width: 100
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b67c0cc249e7747b2b1a22fcf5d2c3
+      internalID: -325560047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spaceship_7
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 825
+        width: 101
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1a9637972b35043bdcde2e3983a1df
+      internalID: -1018361307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spaceship_8
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 821
+        width: 100
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3168a2bbba87a24c9e4c60ecd69a951
+      internalID: 1751148216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spaceship_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 725
+        width: 110
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e42af43f45b98654b82283e97122c464
+      internalID: 269434474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spaceship_10
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 725
+        width: 109
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87673c2eb0c02a4428fa8f2e640ee150
+      internalID: 344945079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spaceship_11
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 720
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322492463eae7b346aed886a9087b25b
+      internalID: -931662525
       vertices: []
       indices: 
       edges: []
@@ -265,9 +391,15 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       spaceship_2: 890199127
+      spaceship_10: 344945079
+      spaceship_11: -931662525
       spaceship_4: -305638369
       spaceship_5: 398374340
+      spaceship_8: 1751148216
+      spaceship_9: 269434474
+      spaceship_6: -325560047
       spaceship_1: -472865456
+      spaceship_7: -1018361307
       spaceship_3: -838077705
       spaceship_0: -996054046
   spritePackingTag: 

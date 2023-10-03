@@ -22,6 +22,7 @@ public class AsteroidController : MonoBehaviour
     public List<GameObject> Asteroids;
     public GameObject BossDirection;
     private GameObject BossDirectionMediate;
+    public ParticleSystem ParticleSystem;
 
     private void OnEnable()
     {
@@ -39,6 +40,8 @@ public class AsteroidController : MonoBehaviour
     }
     private void Start()
     {
+        ParticleSystem.Stop();
+
         float posX = -size * width / 2f - size / 2f;
 
         widtharray = new Vector2[width];
@@ -55,7 +58,7 @@ public class AsteroidController : MonoBehaviour
     {
         if (!IsSpawn) return;
 
-        if(AttackCount % 10 == 0)
+        if (AttackCount % 10 == 0)
         {
             GameObject MediateAsteroid;
             MediateAsteroid = Instantiate(BigAsteroid, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
@@ -98,8 +101,15 @@ public class AsteroidController : MonoBehaviour
     {
         IsSpawn = isSpawn;
         if (isSpawn)
+        {
             if (BossDirectionMediate)
                 Destroy(BossDirectionMediate);
+
+            if(!ParticleSystem.isPlaying)
+            {
+                ParticleSystem.Play();
+            }
+        }
     }
     private void SetList(GameObject Asteroid)
     {
@@ -107,6 +117,10 @@ public class AsteroidController : MonoBehaviour
 
         if (Asteroids.Count == 0 && !endGame)
         {
+            if (ParticleSystem.isPlaying)
+            {
+                ParticleSystem.Stop();
+            }
             SystemEvent.DoStartStep();
             if(AttackCount % 10 == 0)
                 BossDirectionMediate = Instantiate(BossDirection, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
