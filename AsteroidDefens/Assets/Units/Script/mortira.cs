@@ -8,6 +8,7 @@ public class mortira : MonoBehaviour
     private bool IsSpawn = false;
 
     public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRendererActive;
     public Sprite[] sprites;
 
     private List<GameObject> Asteroids;
@@ -15,6 +16,7 @@ public class mortira : MonoBehaviour
     private float coldawn;
 
     public GameObject bulet;
+    public Transform startFire;
 
     private void OnEnable()
     {
@@ -28,7 +30,8 @@ public class mortira : MonoBehaviour
     }
     private void Start()
     {
-        spriteRenderer.sprite = sprites[0];
+        spriteRenderer.enabled = false;
+        spriteRendererActive = GetComponent<SpriteRenderer>();
         Asteroids = new List<GameObject>();
     }
     private void Update()
@@ -50,7 +53,12 @@ public class mortira : MonoBehaviour
     }
     private void Fire(GameObject target)
     {
-        GameObject Bulet = Instantiate(bulet, transform.position, Quaternion.identity);
+        if(transform.position.x - target.transform.position.x > 0)
+            spriteRendererActive.flipX = false;
+        else
+            spriteRendererActive.flipX = true;
+
+        GameObject Bulet = Instantiate(bulet, startFire.position, Quaternion.identity);
         bulet buletScript = Bulet.GetComponent<bulet>();
         buletScript.target = target;
         buletScript.damage = parametrs.Damage[parametrs.LvL];
@@ -59,7 +67,7 @@ public class mortira : MonoBehaviour
     private void Upgrade()
     {
         if (parametrs.LvL <= sprites.Length)
-            spriteRenderer.sprite = sprites[parametrs.LvL - 1];
+            spriteRendererActive.sprite = sprites[parametrs.LvL - 1];
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

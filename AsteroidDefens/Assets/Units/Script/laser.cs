@@ -7,6 +7,7 @@ public class laser : MonoBehaviour
     public parametrs parametrs;
 
     public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRendererActive;
     public LineRenderer lineRenderer;
     public Sprite[] sprites;
 
@@ -16,6 +17,7 @@ public class laser : MonoBehaviour
     public LayerMask layerMask;
     RaycastHit2D hitUp;
     RaycastHit2D hitDown;
+    public Transform startFire;
 
     private void OnEnable()
     {
@@ -29,13 +31,14 @@ public class laser : MonoBehaviour
     }
     private void Start()
     {
-        spriteRenderer.sprite = sprites[0];
+        spriteRenderer.enabled = false;
+        spriteRendererActive = GetComponent<SpriteRenderer>();
         coldawn = coldawnDefolt;
     }
     private void Upgrade()
     {
         if (parametrs.LvL <= sprites.Length)
-            spriteRenderer.sprite = sprites[parametrs.LvL - 1];
+            spriteRendererActive.sprite = sprites[parametrs.LvL - 1];
     }
     private void Update()
     {
@@ -49,11 +52,13 @@ public class laser : MonoBehaviour
 
             if (hitUp.transform != null && hitUp.transform.gameObject.tag == "Asteroid")
             {
+                spriteRendererActive.flipY = false;
                 lineRenderer.enabled = true;
                 Fire(hitUp.transform.gameObject);
             }
             else if (hitDown.transform != null && hitDown.transform.gameObject.tag == "Asteroid")
             {
+                spriteRendererActive.flipY = true;
                 lineRenderer.enabled = true;
                 Fire(hitDown.transform.gameObject);
             }
@@ -68,7 +73,7 @@ public class laser : MonoBehaviour
     }
     private void Fire(GameObject direction)
     {
-        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(0, startFire.position);
         lineRenderer.SetPosition(1, direction.transform.position);
         direction.GetComponent<Asteroid>().TakeDamage(parametrs.Damage[parametrs.LvL]);
     }

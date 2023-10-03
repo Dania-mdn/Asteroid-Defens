@@ -5,9 +5,9 @@ using UnityEngine;
 public class step : MonoBehaviour
 {
     public parametrs parametrs;
-    public Match3Control Match3Control;
 
     public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRendererActive;
     public Sprite[] sprites;
     public bool IsOpen = false;
 
@@ -23,13 +23,14 @@ public class step : MonoBehaviour
     }
     private void Start()
     {
-        spriteRenderer.sprite = sprites[0];
+        spriteRenderer.enabled = false;
+        spriteRendererActive = GetComponent<SpriteRenderer>();
     }
 
     private void Upgrade()
     {
         if (parametrs.LvL <= sprites.Length)
-            spriteRenderer.sprite = sprites[parametrs.LvL - 1];
+            spriteRendererActive.sprite = sprites[parametrs.LvL - 1];
     }
     public void SetOpen()
     {

@@ -8,6 +8,7 @@ public class tower : MonoBehaviour
     private bool IsSpawn = false;
 
     public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRendererActive;
     public Sprite[] sprites;
 
     private List<GameObject> Asteroids;
@@ -28,7 +29,8 @@ public class tower : MonoBehaviour
     }
     private void Start()
     {
-        spriteRenderer.sprite = sprites[0];
+        spriteRenderer.enabled = false;
+        spriteRendererActive = GetComponent<SpriteRenderer>();
         Asteroids = new List<GameObject>();
 
     }
@@ -59,7 +61,7 @@ public class tower : MonoBehaviour
     private void Upgrade()
     {
         if (parametrs.LvL <= sprites.Length)
-            spriteRenderer.sprite = sprites[parametrs.LvL - 1];
+            spriteRendererActive.sprite = sprites[parametrs.LvL - 1];
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

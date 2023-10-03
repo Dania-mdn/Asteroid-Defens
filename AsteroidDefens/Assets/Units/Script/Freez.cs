@@ -7,6 +7,7 @@ public class Freez : MonoBehaviour
     public parametrs parametrs;
 
     public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRendererActive;
     public Sprite[] sprites;
 
     private void OnEnable()
@@ -19,14 +20,15 @@ public class Freez : MonoBehaviour
     }
     private void Start()
     {
-        spriteRenderer.sprite = sprites[0];
+        spriteRenderer.enabled = false;
+        spriteRendererActive = GetComponent<SpriteRenderer>();
     }
 
     private void Upgrade()
     {
         if(parametrs.LvL <= sprites.Length)
         {
-            spriteRenderer.sprite = sprites[parametrs.LvL - 1];
+            spriteRendererActive.sprite = sprites[parametrs.LvL - 1];
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
