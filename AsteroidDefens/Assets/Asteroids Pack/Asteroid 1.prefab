@@ -91,6 +91,7 @@ MonoBehaviour:
   Helth: 2
   Boss: 0
   asteroidController: {fileID: 0}
+  explosion: {fileID: 2189597013391435756, guid: 55e69e1e83189de42844f74304af79a3, type: 3}
 --- !u!1001 &2198558298241495972
 PrefabInstance:
   m_ObjectHideFlags: 0

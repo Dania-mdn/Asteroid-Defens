@@ -13,6 +13,7 @@ public class Asteroid : MonoBehaviour
 
     public AsteroidController asteroidController;
     private GameObject MediateAsteroid;
+    public GameObject explosion;
 
     private void Start()
     {
@@ -54,7 +55,7 @@ public class Asteroid : MonoBehaviour
                 SystemEvent.DoHitPlayer(gameObject);
             else
                 SystemEvent.DoEndGame();
-            Destroy(gameObject);
+            SetDestrroy();
         }
     }
     public void TakeDamage(float Damage)
@@ -75,7 +76,7 @@ public class Asteroid : MonoBehaviour
                 GenerateAsteroid();
                 SystemEvent.DoDestroyBoss();
             }
-            Destroy(gameObject);
+            SetDestrroy();
         }
     }
     private void GenerateAsteroid()
@@ -88,5 +89,10 @@ public class Asteroid : MonoBehaviour
             MediateAsteroid = Instantiate(asteroidController.Asteroid[o], transform.position + new Vector3(x, y, transform.position.z), Quaternion.identity, asteroidController.transform);
             asteroidController.Asteroids.Add(MediateAsteroid);
         }
+    }
+    private void SetDestrroy()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity, transform.parent);
+        Destroy(gameObject);
     }
 }
