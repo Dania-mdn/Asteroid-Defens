@@ -9,7 +9,7 @@ public class step : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     private SpriteRenderer spriteRendererActive;
     public Sprite[] sprites;
-    public Sprite spritesOpen;
+    public Sprite[] spritesOpen;
     public bool IsOpen = false;
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public class step : MonoBehaviour
         if (!IsOpen)
         {
             IsOpen = true;
-            spriteRendererActive.sprite = spritesOpen;
+            spriteRendererActive.sprite = spritesOpen[parametrs.LvL - 1];
         }
         else
         {

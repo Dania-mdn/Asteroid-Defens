@@ -25,11 +25,13 @@ public class tower : MonoBehaviour
     {
         SystemEvent.EndStep += SetIsSpawn;
         SystemEvent.Upgrade += Upgrade;
+        SystemEvent.StartStep += Setrotation;
     }
     private void OnDisable()
     {
         SystemEvent.EndStep -= SetIsSpawn;
         SystemEvent.Upgrade -= Upgrade;
+        SystemEvent.StartStep -= Setrotation;
     }
     private void Start()
     {
@@ -88,6 +90,11 @@ public class tower : MonoBehaviour
     private void SetIsSpawn(bool isSpawn)
     {
         IsSpawn = isSpawn;
-        //transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+        if(!IsSpawn)
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+    }
+    private void Setrotation()
+    {
+         transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 }

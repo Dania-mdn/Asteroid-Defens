@@ -23,11 +23,13 @@ public class laser : MonoBehaviour
     {
         SystemEvent.EndStep += SetIsSpawn;
         SystemEvent.Upgrade += Upgrade;
+        SystemEvent.StartStep += Setrotation;
     }
     private void OnDisable()
     {
         SystemEvent.EndStep -= SetIsSpawn;
         SystemEvent.Upgrade -= Upgrade;
+        SystemEvent.StartStep -= Setrotation;
     }
     private void Start()
     {
@@ -80,5 +82,9 @@ public class laser : MonoBehaviour
     private void SetIsSpawn(bool isSpawn)
     {
         IsSpawn = isSpawn;
+    }
+    private void Setrotation()
+    {
+        transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 }

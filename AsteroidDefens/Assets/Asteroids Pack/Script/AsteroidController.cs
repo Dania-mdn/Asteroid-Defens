@@ -23,6 +23,8 @@ public class AsteroidController : MonoBehaviour
     public GameObject BossDirection;
     private GameObject BossDirectionMediate;
     public ParticleSystem ParticleSystem;
+    public Animation Animation;
+    public GameObject plane;
 
     private void OnEnable()
     {
@@ -108,6 +110,8 @@ public class AsteroidController : MonoBehaviour
             if(!ParticleSystem.isPlaying)
             {
                 ParticleSystem.Play();
+                Animation.Play();
+                plane.SetActive(false);
             }
         }
     }
@@ -120,6 +124,8 @@ public class AsteroidController : MonoBehaviour
             if (ParticleSystem.isPlaying)
             {
                 ParticleSystem.Stop();
+                Animation.Stop();
+                plane.SetActive(true);
             }
             SystemEvent.DoStartStep();
             if(AttackCount % 10 == 0)
