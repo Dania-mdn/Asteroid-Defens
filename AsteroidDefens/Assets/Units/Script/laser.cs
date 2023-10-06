@@ -45,8 +45,8 @@ public class laser : MonoBehaviour
     private void Update()
     {
         if (!IsSpawn) return;
-        hitUp = Physics2D.Raycast(transform.transform.position, Vector2.up, Mathf.Infinity, layerMask);
-        hitDown = Physics2D.Raycast(transform.transform.position, -Vector2.up, Mathf.Infinity, layerMask);
+        hitUp = Physics2D.Raycast(transform.transform.position, Vector2.up, 5, layerMask);
+        hitDown = Physics2D.Raycast(transform.transform.position, -Vector2.up, 5, layerMask);
 
         if (coldawn < 0.3f)
         {

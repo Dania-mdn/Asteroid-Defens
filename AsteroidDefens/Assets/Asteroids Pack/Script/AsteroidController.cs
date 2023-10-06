@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AsteroidController : MonoBehaviour
@@ -25,6 +26,11 @@ public class AsteroidController : MonoBehaviour
     public ParticleSystem ParticleSystem;
     public Animation Animation;
     public GameObject plane;
+    public GameObject Decor;
+
+    public float coldawnStar = 15;
+    private float timerStar;
+    public Animation[] star;
 
     private void OnEnable()
     {
@@ -58,6 +64,19 @@ public class AsteroidController : MonoBehaviour
     }
     private void Update()
     {
+        if (timerStar > 0)
+        {
+            timerStar = timerStar - Time.deltaTime;
+        }
+        else
+        {
+            int i = Random.Range(0, star.Length);
+            star[i].Play();
+            timerStar = coldawnStar;
+        }
+
+
+
         if (!IsSpawn) return;
 
         if (AttackCount % 10 == 0)
@@ -107,11 +126,12 @@ public class AsteroidController : MonoBehaviour
             if (BossDirectionMediate)
                 Destroy(BossDirectionMediate);
 
-            if(!ParticleSystem.isPlaying)
+            if(plane.activeSelf)
             {
                 ParticleSystem.Play();
                 Animation.Play();
                 plane.SetActive(false);
+                Decor.SetActive(true);
             }
         }
     }
@@ -121,11 +141,12 @@ public class AsteroidController : MonoBehaviour
 
         if (Asteroids.Count == 0 && !endGame)
         {
-            if (ParticleSystem.isPlaying)
+            if (!plane.activeSelf)
             {
                 ParticleSystem.Stop();
                 Animation.Stop();
                 plane.SetActive(true);
+                Decor.SetActive(false);
             }
             SystemEvent.DoStartStep();
             if(AttackCount % 10 == 0)

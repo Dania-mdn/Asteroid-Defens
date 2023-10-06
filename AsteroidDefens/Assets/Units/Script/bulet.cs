@@ -10,7 +10,12 @@ public class bulet : MonoBehaviour
     private Vector3 targetPosition;
     public bool isMortira = false;
     private float explosionRadius = 0.7f;
+    public GameObject ParticleSystem;
 
+    private void Start()
+    {
+        Instantiate(ParticleSystem, transform.position, Quaternion.identity);
+    }
     void Update()
     {
         if (target != null)

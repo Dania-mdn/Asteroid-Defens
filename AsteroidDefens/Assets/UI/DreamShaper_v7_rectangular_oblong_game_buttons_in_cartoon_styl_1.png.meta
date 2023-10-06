@@ -131,12 +131,12 @@ TextureImporter:
       name: DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_0
       rect:
         serializedVersion: 2
-        x: 194
-        y: 621
+        x: 202
+        y: 641
         width: 440
         height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_1
       rect:
         serializedVersion: 2
-        x: 205
-        y: 402
-        width: 426
-        height: 201
+        x: 214
+        y: 423
+        width: 424
+        height: 199
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_2
       rect:
         serializedVersion: 2
-        x: 195
-        y: 187
+        x: 203
+        y: 207
         width: 441
         height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,6 +186,69 @@ TextureImporter:
       bones: []
       spriteID: 5c1bcb390bfacd945886041e068c7d9c
       internalID: 2085511800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_3
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 129
+        width: 433
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d07509b0fc88e4db67bab4199544e4
+      internalID: 1688005178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_4
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 10
+        width: 576
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31b10ee2b0769f4aaede17309bc6e57
+      internalID: 1611054278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_5
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 215
+        width: 82
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8985cc8e35d2d248851f01cefca1806
+      internalID: -198084337
       vertices: []
       indices: 
       edges: []
@@ -201,8 +264,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_5: -198084337
       DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_2: 2085511800
+      DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_3: 1688005178
       DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_0: 2134433166
+      DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_4: 1611054278
       DreamShaper_v7_rectangular_oblong_game_buttons_in_cartoon_styl_1_1: 821316919
   spritePackingTag: 
   pSDRemoveMatte: 0

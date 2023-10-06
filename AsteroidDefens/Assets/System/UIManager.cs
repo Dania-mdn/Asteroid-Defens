@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public GameObject GameOwer;
 
     public Slider BossHealth;
+    public Animation AnimationHit;
 
     private void OnEnable()
     {
@@ -74,6 +75,7 @@ public class UIManager : MonoBehaviour
         {
             HealthCount--;
             Health.value = HealthCount;
+            AnimationHit.Play();
         }
 
         if(HealthCount == 0)

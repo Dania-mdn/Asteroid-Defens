@@ -17,6 +17,7 @@ public class mortira : MonoBehaviour
 
     public GameObject bulet;
     public Transform startFire;
+    private GameObject Bulet;
 
     private void OnEnable()
     {
@@ -54,11 +55,16 @@ public class mortira : MonoBehaviour
     private void Fire(GameObject target)
     {
         if(transform.position.x - target.transform.position.x > 0)
+        {
             spriteRendererActive.flipX = false;
+            Bulet = Instantiate(bulet, startFire.position, Quaternion.identity);
+        }
         else
+        {
             spriteRendererActive.flipX = true;
+            Bulet = Instantiate(bulet, startFire.position + Vector3.right, Quaternion.identity);
+        }
 
-        GameObject Bulet = Instantiate(bulet, startFire.position, Quaternion.identity);
         bulet buletScript = Bulet.GetComponent<bulet>();
         buletScript.target = target;
         buletScript.damage = parametrs.Damage[parametrs.LvL];
