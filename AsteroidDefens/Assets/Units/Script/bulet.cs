@@ -9,7 +9,7 @@ public class bulet : MonoBehaviour
     public GameObject target;
     private Vector3 targetPosition;
     public bool isMortira = false;
-    private float explosionRadius = 0.7f;
+    //public float explosionRadius;
     public GameObject ParticleSystem;
 
     private void Start()
@@ -34,22 +34,23 @@ public class bulet : MonoBehaviour
     {
         if (collision.gameObject == target)
         {
-            if (isMortira)
-            {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+            collision.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
+            //if (isMortira)
+            //{
+            //    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
 
-                foreach (Collider2D collider in colliders)
-                {
-                    if (collider.gameObject.tag == "Asteroid")
-                    {
-                        collider.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
-                    }
-                }
-            }
-            else
-            {
-                collision.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
-            }
+            //    foreach (Collider2D collider in colliders)
+            //    {
+            //        if (collider.gameObject.tag == "Asteroid")
+            //        {
+            //            collider.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    collision.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
+            //}
             Destroy(gameObject);
         }
     }

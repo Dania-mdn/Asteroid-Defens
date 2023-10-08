@@ -23,6 +23,8 @@ public class Match3Control : MonoBehaviour
     private bool isLines, isMove;
     private float timeout;
     private bool isClick = false;
+    public AudioSource Step;
+    public AudioSource stack;
 
     void Start()
     {
@@ -68,6 +70,8 @@ public class Match3Control : MonoBehaviour
                             grid[liness[i][j].x, liness[i][j].y] = null;
                             FolseActiveArray.Add(liness[i][j].gameObject);
                         }
+                        if(j > 2)
+                            SystemEvent.DoAddStep(1);
                     }
                 }
                 else
@@ -84,8 +88,11 @@ public class Match3Control : MonoBehaviour
                             grid[liness[i][j].x, liness[i][j].y] = null;
                             FolseActiveArray.Add(liness[i][j].gameObject);
                         }
+                        if (j > 2)
+                            SystemEvent.DoAddStep(1);
                     }
                 }
+                stack.Play();
             }
 
             isMove = true;
@@ -142,6 +149,7 @@ public class Match3Control : MonoBehaviour
                 }
             }
         }
+        SystemEvent.DoCloseStep();
     }
 
     void Update()
@@ -253,7 +261,18 @@ public class Match3Control : MonoBehaviour
                 if (hit.transform.GetComponentInChildren<step>() != null)
                 {
                     step step = hit.transform.GetComponentInChildren<step>();
-                    step.SetOpen();
+                    if (step.IsOpen)
+                    {
+                        isLines = true;
+                        step.SetOpen();
+                        delete(current);
+                        SystemEvent.DoCloseStep();
+                    }
+                    else
+                    {
+                        SystemEvent.DoCloseStep();
+                        step.SetOpen();
+                    }
                 }
                 else
                 {
@@ -275,9 +294,11 @@ public class Match3Control : MonoBehaviour
                         isLines = true;
                         step.SetOpen();
                         delete(current);
+                        SystemEvent.DoCloseStep();
                     }
                     else
                     {
+                        SystemEvent.DoCloseStep();
                         step.SetOpen();
                     }
                 }
@@ -300,6 +321,7 @@ public class Match3Control : MonoBehaviour
                     return;
                 }
 
+                Step.Play();
                 current.highlight.SetActive(false);
                 currentPos = current.transform.position;
                 lastPos = last.transform.position;

@@ -11,13 +11,13 @@ public class laser : MonoBehaviour
     public LineRenderer lineRenderer;
     public Sprite[] sprites;
 
-    public float coldawnDefolt = 1;
     private float coldawn;
     private bool IsSpawn = false;
     public LayerMask layerMask;
     RaycastHit2D hitUp;
     RaycastHit2D hitDown;
     public Transform startFire;
+    public AudioSource AudioLaser;
 
     private void OnEnable()
     {
@@ -35,7 +35,7 @@ public class laser : MonoBehaviour
     {
         spriteRenderer.enabled = false;
         spriteRendererActive = GetComponent<SpriteRenderer>();
-        coldawn = coldawnDefolt;
+        coldawn = parametrs.Firerate[parametrs.LvL];
     }
     private void Upgrade()
     {
@@ -65,7 +65,7 @@ public class laser : MonoBehaviour
                 Fire(hitDown.transform.gameObject);
             }
             if (coldawn < 0)
-                coldawn = coldawnDefolt;
+                coldawn = parametrs.Firerate[parametrs.LvL];
         }
         else
         {
@@ -75,6 +75,7 @@ public class laser : MonoBehaviour
     }
     private void Fire(GameObject direction)
     {
+        AudioLaser.Play();
         lineRenderer.SetPosition(0, startFire.position);
         lineRenderer.SetPosition(1, direction.transform.position);
         direction.GetComponent<Asteroid>().TakeDamage(parametrs.Damage[parametrs.LvL]);

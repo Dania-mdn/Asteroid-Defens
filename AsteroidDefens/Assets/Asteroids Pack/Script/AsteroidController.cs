@@ -27,6 +27,9 @@ public class AsteroidController : MonoBehaviour
     public Animation Animation;
     public GameObject plane;
     public GameObject Decor;
+    public AudioSource DefoltAudio;
+    public AudioSource FightAudio;
+    public AudioSource Spaceship;
 
     public float coldawnStar = 15;
     private float timerStar;
@@ -48,6 +51,7 @@ public class AsteroidController : MonoBehaviour
     }
     private void Start()
     {
+        DefoltAudio.Play();
         ParticleSystem.Stop();
 
         float posX = -size * width / 2f - size / 2f;
@@ -84,6 +88,7 @@ public class AsteroidController : MonoBehaviour
             GameObject MediateAsteroid;
             MediateAsteroid = Instantiate(BigAsteroid, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
             MediateAsteroid.GetComponent<Asteroid>().asteroidController = this;
+            MediateAsteroid.GetComponent<Asteroid>().Helth = asteroidCount;
             SetIsSpawn(false);
             AttackCount++;
         }
@@ -132,6 +137,9 @@ public class AsteroidController : MonoBehaviour
                 Animation.Play();
                 plane.SetActive(false);
                 Decor.SetActive(true);
+                DefoltAudio.Stop();
+                FightAudio.Play();
+                Spaceship.Play();
             }
         }
     }
@@ -147,6 +155,9 @@ public class AsteroidController : MonoBehaviour
                 Animation.Stop();
                 plane.SetActive(true);
                 Decor.SetActive(false);
+                DefoltAudio.Play();
+                FightAudio.Stop(); 
+                Spaceship.Stop();
             }
             SystemEvent.DoStartStep();
             if(AttackCount % 10 == 0)

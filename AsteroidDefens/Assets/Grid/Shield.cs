@@ -3,6 +3,7 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     private Animation AnimShield;
+    public AudioSource AudioShield;
 
     private void OnEnable()
     {
@@ -20,7 +21,9 @@ public class Shield : MonoBehaviour
     {
         if (!AnimShield.isPlaying)
         {
-            AnimShield.Play();
+            AnimShield.Play(); 
+            AudioShield.Stop();
+            AudioShield.Play();
         }
     }
 }

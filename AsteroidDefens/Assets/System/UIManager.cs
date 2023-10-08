@@ -8,8 +8,10 @@ public class UIManager : MonoBehaviour
     public Slider Health;
     public int HealthCount = 5;
     public TextMeshProUGUI Step;
+    public TextMeshProUGUI StepAdd;
     private int day = 1;
     public TextMeshProUGUI Day;
+    public TextMeshProUGUI DayAdd;
     public TextMeshProUGUI[] DayPanel;
     private int record;
     public TextMeshProUGUI[] recordPanel;
@@ -22,6 +24,10 @@ public class UIManager : MonoBehaviour
 
     public Slider BossHealth;
     public Animation AnimationHit;
+    public Animation AnimationStep;
+    public Animation AnimationDay;
+    public AudioSource StepAudio;
+    public AudioSource DayAudio;
 
     private void OnEnable()
     {
@@ -104,7 +110,10 @@ public class UIManager : MonoBehaviour
     }
     private void StartStep()
     {
-        day++;
+        DayAudio.Play();
+        day++; 
+        AnimationDay.Play();
+        DayAdd.text = "+1".ToString();
         Day.text = day.ToString();
         StepCount = DefoltStepCount;
         Step.text = StepCount.ToString();
@@ -118,12 +127,16 @@ public class UIManager : MonoBehaviour
     }
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     public void AddStep(int step)
     {
+        StepAudio.Play();
+        AnimationStep.Play();
         StepCount = StepCount + step;
         Step.text = StepCount.ToString();
+        StepAdd.text = "+" + step.ToString();
     }
     private void SpawnBoss(float hp)
     {

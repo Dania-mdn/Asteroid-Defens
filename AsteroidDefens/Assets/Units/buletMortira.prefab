@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 6
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8820755, g: 0.9506556, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.8680749, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -117,4 +117,5 @@ MonoBehaviour:
   damage: 0
   target: {fileID: 0}
   isMortira: 0
+  explosionRadius: 0
   ParticleSystem: {fileID: 2684605665299173254, guid: 1de1666d79994944e876f06f2c85ae1b, type: 3}

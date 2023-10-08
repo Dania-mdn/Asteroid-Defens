@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 public class step : MonoBehaviour
@@ -7,10 +7,12 @@ public class step : MonoBehaviour
     public parametrs parametrs;
 
     public SpriteRenderer spriteRenderer;
-    private SpriteRenderer spriteRendererActive;
+    public SpriteRenderer spriteRendererActive;
     public Sprite[] sprites;
     public Sprite[] spritesOpen;
     public bool IsOpen = false;
+    public GameObject text;
+    public TextMeshProUGUI addStep;
 
     private void OnEnable()
     {
@@ -25,7 +27,6 @@ public class step : MonoBehaviour
     private void Start()
     {
         spriteRenderer.enabled = false;
-        spriteRendererActive = GetComponent<SpriteRenderer>();
     }
 
     private void Upgrade()
@@ -37,6 +38,8 @@ public class step : MonoBehaviour
     {
         if (!IsOpen)
         {
+            text.SetActive(true);
+            addStep.text = parametrs.Step[parametrs.LvL].ToString();
             IsOpen = true;
             spriteRendererActive.sprite = spritesOpen[parametrs.LvL - 1];
         }
@@ -49,6 +52,7 @@ public class step : MonoBehaviour
     {
         IsOpen = false;
         spriteRendererActive.sprite = sprites[parametrs.LvL - 1];
+        text.SetActive(false);
     }
     private void AddStep()
     {

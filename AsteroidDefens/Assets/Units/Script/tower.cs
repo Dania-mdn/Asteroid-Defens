@@ -20,6 +20,7 @@ public class tower : MonoBehaviour
     public Transform[] firepont0;
     private float angle;
     private Vector2 dir;
+    public AudioSource AudioTower;
 
     private void OnEnable()
     {
@@ -67,6 +68,7 @@ public class tower : MonoBehaviour
         bulet buletScript = Bulet.GetComponent<bulet>();
         buletScript.target = target;
         buletScript.damage = parametrs.Damage[parametrs.LvL];
+        AudioTower.Play();
     }
     private void Upgrade()
     {

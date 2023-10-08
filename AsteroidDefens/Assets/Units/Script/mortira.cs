@@ -18,6 +18,7 @@ public class mortira : MonoBehaviour
     public GameObject bulet;
     public Transform startFire;
     private GameObject Bulet;
+    public AudioSource AudioMortira;
 
     private void OnEnable()
     {
@@ -68,7 +69,9 @@ public class mortira : MonoBehaviour
         bulet buletScript = Bulet.GetComponent<bulet>();
         buletScript.target = target;
         buletScript.damage = parametrs.Damage[parametrs.LvL];
+        //buletScript.explosionRadius = parametrs.radius[parametrs.LvL];
         buletScript.isMortira = true;
+        AudioMortira.Play();
     }
     private void Upgrade()
     {

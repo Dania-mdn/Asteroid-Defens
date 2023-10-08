@@ -81,7 +81,7 @@ public class Asteroid : MonoBehaviour
     }
     private void GenerateAsteroid()
     {
-        for (int i = 0; i < asteroidController.asteroidCount; i++)
+        for (int i = 0; i < asteroidController.asteroidCount / 3; i++)
         {
             int o = Random.Range(0, asteroidController.Asteroid.Length);
             float x = Random.Range(-0.9f, 0.9f);

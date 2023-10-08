@@ -9,5 +9,6 @@ public class parametrs : MonoBehaviour
     public float[] Damage;
     public float[] Firerate;
     public float[] Freez;
+    //public float[] radius;
     public int[] Step;
 }
