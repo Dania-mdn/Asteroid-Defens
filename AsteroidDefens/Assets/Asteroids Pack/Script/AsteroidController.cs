@@ -19,7 +19,7 @@ public class AsteroidController : MonoBehaviour
 
     public GameObject BigAsteroid;
     private int BigAsteroidDirectionl;
-    public GameObject[] Asteroid;
+    public GameObject Asteroid;
     public List<GameObject> Asteroids;
     public GameObject BossDirection;
     private GameObject BossDirectionMediate;
@@ -41,6 +41,10 @@ public class AsteroidController : MonoBehaviour
         SystemEvent.DestroyAsteroid += SetList;
         SystemEvent.HitPlayer += SetList;
         SystemEvent.EndGame += EndGame;
+        SystemEvent.MuteAudio += AudioMute;
+        SystemEvent.PlayAudio += AudioPlay;
+        SystemEvent.AddHealth += StartGame;
+        SystemEvent.AddHealth += building;
     }
     private void OnDisable()
     {
@@ -48,6 +52,10 @@ public class AsteroidController : MonoBehaviour
         SystemEvent.DestroyAsteroid -= SetList;
         SystemEvent.HitPlayer -= SetList;
         SystemEvent.EndGame -= EndGame;
+        SystemEvent.MuteAudio -= AudioMute;
+        SystemEvent.PlayAudio -= AudioPlay;
+        SystemEvent.AddHealth -= StartGame;
+        SystemEvent.AddHealth -= building;
     }
     private void Start()
     {
@@ -108,9 +116,8 @@ public class AsteroidController : MonoBehaviour
     private void GeneretedAsteroid()
     {
         int j = Random.Range(0, widtharray.Length); 
-        int i = Random.Range(0, Asteroid.Length); 
         GameObject MediateAsteroid;
-        MediateAsteroid = Instantiate(Asteroid[i], widtharray[j], Quaternion.identity, transform);
+        MediateAsteroid = Instantiate(Asteroid, widtharray[j], Quaternion.identity, transform);
         Asteroids.Add(MediateAsteroid);
         SpawnAsteroidCount++;
 
@@ -146,7 +153,10 @@ public class AsteroidController : MonoBehaviour
     private void SetList(GameObject Asteroid)
     {
         Asteroids.Remove(Asteroid);
-
+            building();
+    }
+    public void building()
+    {
         if (Asteroids.Count == 0 && !endGame)
         {
             if (!plane.activeSelf)
@@ -156,16 +166,33 @@ public class AsteroidController : MonoBehaviour
                 plane.SetActive(true);
                 Decor.SetActive(false);
                 DefoltAudio.Play();
-                FightAudio.Stop(); 
+                FightAudio.Stop();
                 Spaceship.Stop();
             }
             SystemEvent.DoStartStep();
-            if(AttackCount % 10 == 0)
+            if (AttackCount % 10 == 0)
                 BossDirectionMediate = Instantiate(BossDirection, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
         }
     }
     private void EndGame()
     {
         endGame = true;
+    }
+    public void StartGame()
+    {
+        endGame = false;
+        SystemEvent.DoAddHealth();
+    }
+    public void AudioMute()
+    {
+        DefoltAudio.mute = true;
+        FightAudio.mute = true;
+        Spaceship.mute = true;
+    }
+    public void AudioPlay()
+    {
+        DefoltAudio.mute = false;
+        FightAudio.mute = false;
+        Spaceship.mute = false;
     }
 }

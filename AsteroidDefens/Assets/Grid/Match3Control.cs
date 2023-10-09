@@ -26,6 +26,16 @@ public class Match3Control : MonoBehaviour
     public AudioSource Step;
     public AudioSource stack;
 
+    private void OnEnable()
+    {
+        SystemEvent.MuteAudio += AudioMute;
+        SystemEvent.PlayAudio += AudioPlay;
+    }
+    private void OnDisable()
+    {
+        SystemEvent.MuteAudio -= AudioMute;
+        SystemEvent.PlayAudio -= AudioPlay;
+    }
     void Start()
     {
         // создание игрового поля (2D массив) с заданными параметрами
@@ -436,5 +446,15 @@ public class Match3Control : MonoBehaviour
             current = null;
             last = null;
         }
+    }
+    public void AudioMute()
+    {
+        Step.mute = true;
+        stack.mute = true;
+    }
+    public void AudioPlay()
+    {
+        Step.mute = false;
+        stack.mute = false;
     }
 }

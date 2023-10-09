@@ -71,7 +71,8 @@ public class mortira : MonoBehaviour
         buletScript.damage = parametrs.Damage[parametrs.LvL];
         //buletScript.explosionRadius = parametrs.radius[parametrs.LvL];
         buletScript.isMortira = true;
-        AudioMortira.Play();
+        if (PlayerPrefs.HasKey("MuteAudio") == false)
+            AudioMortira.Play();
     }
     private void Upgrade()
     {

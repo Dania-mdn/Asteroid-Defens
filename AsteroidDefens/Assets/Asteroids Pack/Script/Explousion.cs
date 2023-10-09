@@ -7,7 +7,9 @@ public class Explousion : MonoBehaviour
     public AudioSource AudioExplosion;
     void Start()
     {
-        AudioExplosion.Play();
+        if(PlayerPrefs.HasKey("MuteAudio") == false)
+            AudioExplosion.Play();
+
         Destroy(gameObject, 2);
     }
 }

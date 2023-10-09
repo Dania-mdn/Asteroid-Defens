@@ -75,7 +75,8 @@ public class laser : MonoBehaviour
     }
     private void Fire(GameObject direction)
     {
-        AudioLaser.Play();
+        if (PlayerPrefs.HasKey("MuteAudio") == false)
+            AudioLaser.Play();
         lineRenderer.SetPosition(0, startFire.position);
         lineRenderer.SetPosition(1, direction.transform.position);
         direction.GetComponent<Asteroid>().TakeDamage(parametrs.Damage[parametrs.LvL]);

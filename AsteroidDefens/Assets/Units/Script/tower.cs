@@ -68,7 +68,8 @@ public class tower : MonoBehaviour
         bulet buletScript = Bulet.GetComponent<bulet>();
         buletScript.target = target;
         buletScript.damage = parametrs.Damage[parametrs.LvL];
-        AudioTower.Play();
+        if (PlayerPrefs.HasKey("MuteAudio") == false)
+            AudioTower.Play();
     }
     private void Upgrade()
     {

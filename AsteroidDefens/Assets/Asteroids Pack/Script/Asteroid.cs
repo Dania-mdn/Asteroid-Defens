@@ -11,12 +11,16 @@ public class Asteroid : MonoBehaviour
     public float Helth;
     public bool Boss = false;
 
+    public Sprite[] sprite;
+    public SpriteRenderer SpriteRenderer;
     public AsteroidController asteroidController;
     private GameObject MediateAsteroid;
     public GameObject explosion;
 
     private void Start()
     {
+        SpriteRenderer.sprite = sprite[Random.Range(0, sprite.Length)];
+
         speed = Defoltspeed;
 
         x = Random.Range(-1, 1);
@@ -31,14 +35,19 @@ public class Asteroid : MonoBehaviour
             SystemEvent.DoSpawnBoss(Helth);
         }
     }
+    private void OnEnable()
+    {
+        SystemEvent.EndGame += EndGame;
+    }
+    private void OnDisable()
+    {
+        SystemEvent.EndGame -= EndGame;
+    }
     private IEnumerator RotateContinuously()
     {
         while (true) // Зацикливаем выполнение корутины
         {
-            // Вращаем объект во всех осях
             model.transform.Rotate(Vector3.forward * x, rotationSpeed * Time.deltaTime);
-            model.transform.Rotate(Vector3.up * x, rotationSpeed * Time.deltaTime);
-            model.transform.Rotate(Vector3.right * x, rotationSpeed * Time.deltaTime);
 
             yield return null; // Ждем один кадр
         }
@@ -83,12 +92,16 @@ public class Asteroid : MonoBehaviour
     {
         for (int i = 0; i < asteroidController.asteroidCount / 3; i++)
         {
-            int o = Random.Range(0, asteroidController.Asteroid.Length);
             float x = Random.Range(-0.9f, 0.9f);
             float y = Random.Range(-0.9f, 0.9f);
-            MediateAsteroid = Instantiate(asteroidController.Asteroid[o], transform.position + new Vector3(x, y, transform.position.z), Quaternion.identity, asteroidController.transform);
+            MediateAsteroid = Instantiate(asteroidController.Asteroid, transform.position + new Vector3(x, y, transform.position.z), Quaternion.identity, asteroidController.transform);
             asteroidController.Asteroids.Add(MediateAsteroid);
         }
+    }
+    private void EndGame()
+    {
+        SystemEvent.DoDestroyAsteroid(gameObject);
+        SetDestrroy();
     }
     private void SetDestrroy()
     {

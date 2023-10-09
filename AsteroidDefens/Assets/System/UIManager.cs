@@ -21,18 +21,22 @@ public class UIManager : MonoBehaviour
     public Match3Control Match3Control;
 
     public GameObject GameOwer;
+    public GameObject WatchAdd;
 
     public Slider BossHealth;
     public Animation AnimationHit;
     public Animation AnimationStep;
     public Animation AnimationDay;
+    public Toggle TogglAudio;
     public AudioSource StepAudio;
     public AudioSource DayAudio;
+    private bool isMuteAudio;
 
     private void OnEnable()
     {
         SystemEvent.Step += SetStep;
         SystemEvent.HitPlayer += SetHealth;
+        SystemEvent.AddHealth += AddHealth;
         SystemEvent.StartStep += StartStep;
         SystemEvent.FullStep += FullStep;
         SystemEvent.EndGame += SetGameOwer;
@@ -40,11 +44,14 @@ public class UIManager : MonoBehaviour
         SystemEvent.SpawnBoss += SpawnBoss;
         SystemEvent.DestroyBoss += DestroyBoss;
         SystemEvent.HitBoss += HitBoss;
+        SystemEvent.MuteAudio += AudioMute;
+        SystemEvent.PlayAudio += AudioPlay;
     }
     private void OnDisable()
     {
         SystemEvent.Step -= SetStep;
         SystemEvent.HitPlayer -= SetHealth;
+        SystemEvent.AddHealth -= AddHealth;
         SystemEvent.StartStep -= StartStep;
         SystemEvent.FullStep -= FullStep;
         SystemEvent.EndGame -= SetGameOwer;
@@ -52,6 +59,8 @@ public class UIManager : MonoBehaviour
         SystemEvent.SpawnBoss -= SpawnBoss;
         SystemEvent.DestroyBoss -= DestroyBoss;
         SystemEvent.HitBoss -= HitBoss;
+        SystemEvent.MuteAudio -= AudioMute;
+        SystemEvent.PlayAudio -= AudioPlay;
     }
     private void Start()
     {
@@ -60,7 +69,12 @@ public class UIManager : MonoBehaviour
         StepCount = DefoltStepCount;
         Step.text = StepCount.ToString();
         Day.text = day.ToString(); 
-        record = PlayerPrefs.GetInt("record");
+        record = PlayerPrefs.GetInt("record"); 
+        if (PlayerPrefs.HasKey("MuteAudio"))
+            TogglAudio.isOn = true;
+
+
+        PlayerPrefs.DeleteKey("Reward");
     }
     private void SetStep()
     {
@@ -74,6 +88,13 @@ public class UIManager : MonoBehaviour
             SystemEvent.DoEndStep(true);
             Match3Control.enabled = false;
         }
+    }
+    private void AddHealth()
+    {
+        HealthCount = 5;
+        Health.value = HealthCount;
+        AnimationHit.Play();
+        PlayerPrefs.SetInt("Reward", 1);
     }
     private void SetHealth(GameObject Asteroid)
     {
@@ -107,6 +128,14 @@ public class UIManager : MonoBehaviour
         }
         recordPanel[1].text = record.ToString();
         GameOwer.SetActive(true);
+        if (PlayerPrefs.HasKey("Reward") == false)
+        {
+            WatchAdd.SetActive(true);
+        }
+        else
+        {
+            PlayerPrefs.DeleteKey("Reward");
+        }
     }
     private void StartStep()
     {
@@ -150,5 +179,30 @@ public class UIManager : MonoBehaviour
     private void DestroyBoss()
     {
         BossHealth.gameObject.SetActive(false);
+    }
+    public void Audio()
+    {
+        if (isMuteAudio == false)
+        {
+            isMuteAudio = true;
+            SystemEvent.DoMuteAudio();
+            PlayerPrefs.SetInt("MuteAudio", 1);
+        }
+        else
+        {
+            isMuteAudio = false;
+            SystemEvent.DoPlayAudio();
+            PlayerPrefs.DeleteKey("MuteAudio");
+        }
+    }
+    public void AudioMute()
+    {
+        StepAudio.mute = true;
+        DayAudio.mute = true;
+    }
+    public void AudioPlay()
+    {
+        StepAudio.mute = false;
+        DayAudio.mute = false;
     }
 }

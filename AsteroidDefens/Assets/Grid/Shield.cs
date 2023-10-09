@@ -8,10 +8,14 @@ public class Shield : MonoBehaviour
     private void OnEnable()
     {
         SystemEvent.HitPlayer += Animated;
+        SystemEvent.MuteAudio += AudioMute;
+        SystemEvent.PlayAudio += AudioPlay;
     }
     private void OnDisable()
     {
         SystemEvent.HitPlayer -= Animated;
+        SystemEvent.MuteAudio -= AudioMute;
+        SystemEvent.PlayAudio -= AudioPlay;
     }
     private void Start()
     {
@@ -25,5 +29,13 @@ public class Shield : MonoBehaviour
             AudioShield.Stop();
             AudioShield.Play();
         }
+    }
+    public void AudioMute()
+    {
+        AudioShield.mute = true;
+    }
+    public void AudioPlay()
+    {
+        AudioShield.mute = false;
     }
 }

@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text levelText;
 
+    public Toggle TogglAudio;
+    public GameObject WatchAdd;
+
     void Awake()
     {
         GameDistribution.OnResumeGame += OnResumeGame;
@@ -21,22 +24,31 @@ public class GameManager : MonoBehaviour
         GameDistribution.OnRewardedVideoFailure += OnRewardedVideoFailure;
         GameDistribution.OnRewardGame += OnRewardGame;
     }
+    private void OnEnable()
+    {
+        SystemEvent.EndGame += PreloadRewardedAd;
+    }
+    private void OnDisable()
+    {
+        SystemEvent.EndGame -= PreloadRewardedAd;
+    }
+    private void Start()
+    {
+        ShowAd();
+    }
 
     public void OnResumeGame()
     {
-        // RESUME MY GAME
-        gameControlText.text = "RESUME GAME";
+        TogglAudio.isOn = false;
     }
 
     public void OnPauseGame()
     {
-        // PAUSE MY GAME
-        gameControlText.text = "GAME PAUSED";
+        TogglAudio.isOn = true;
     }
     public void OnRewardGame()
     {
-        // REWARD PLAYER HERE
-        rewardPlayerText.text = "Give Reward Here.";
+
     }
     public void OnRewardedVideoSuccess()
     {
