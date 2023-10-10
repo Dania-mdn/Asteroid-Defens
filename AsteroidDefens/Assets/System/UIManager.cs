@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
     public AudioSource DayAudio;
     private bool isMuteAudio;
 
+    public GameObject tich;
+
     private void OnEnable()
     {
         SystemEvent.Step += SetStep;
@@ -69,12 +71,16 @@ public class UIManager : MonoBehaviour
         StepCount = DefoltStepCount;
         Step.text = StepCount.ToString();
         Day.text = day.ToString(); 
-        record = PlayerPrefs.GetInt("record"); 
+        record = PlayerPrefs.GetInt("record");
         if (PlayerPrefs.HasKey("MuteAudio"))
             TogglAudio.isOn = true;
 
-
         PlayerPrefs.DeleteKey("Reward");
+
+        if(PlayerPrefs.HasKey("Tich") == false)
+            tich.SetActive(true);
+        else
+            tich.SetActive(false);
     }
     private void SetStep()
     {
@@ -134,6 +140,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            WatchAdd.SetActive(false);
             PlayerPrefs.DeleteKey("Reward");
         }
     }
@@ -153,6 +160,7 @@ public class UIManager : MonoBehaviour
         DayPanel[0].text = day.ToString();
         recordPanel[0].text = record.ToString();
         Time.timeScale = timescale;
+        PlayerPrefs.SetInt("Tich", 1);
     }
     public void Restart()
     {
@@ -171,6 +179,7 @@ public class UIManager : MonoBehaviour
     {
         BossHealth.gameObject.SetActive(true);
         BossHealth.maxValue = hp;
+        BossHealth.value = hp;
     }
     private void HitBoss(float hp)
     {

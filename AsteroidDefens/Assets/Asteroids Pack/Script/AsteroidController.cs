@@ -43,8 +43,6 @@ public class AsteroidController : MonoBehaviour
         SystemEvent.EndGame += EndGame;
         SystemEvent.MuteAudio += AudioMute;
         SystemEvent.PlayAudio += AudioPlay;
-        SystemEvent.AddHealth += StartGame;
-        SystemEvent.AddHealth += building;
     }
     private void OnDisable()
     {
@@ -54,8 +52,6 @@ public class AsteroidController : MonoBehaviour
         SystemEvent.EndGame -= EndGame;
         SystemEvent.MuteAudio -= AudioMute;
         SystemEvent.PlayAudio -= AudioPlay;
-        SystemEvent.AddHealth -= StartGame;
-        SystemEvent.AddHealth -= building;
     }
     private void Start()
     {
