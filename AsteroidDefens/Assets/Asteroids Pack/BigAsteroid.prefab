@@ -93,21 +93,21 @@ MonoBehaviour:
   Helth: 5
   Boss: 1
   sprite:
-  - {fileID: -335501133, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -644163744, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: 35359238, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -1478395328, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -152350633, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: 1417577384, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: 1816764298, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: 1705232544, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -303661781, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -2084005168, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -2009067349, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -1738837214, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -933116979, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: -1652438466, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
-  - {fileID: 1742540485, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: -1764754981, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 1903770078, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 1196227094, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: -792151424, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: -765625235, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: -352071303, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 1502997361, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 1054135793, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 1044526401, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 925253652, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 593232534, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: -500422997, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 575046458, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 428490239, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  - {fileID: 1296229821, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
   SpriteRenderer: {fileID: 1577738107551516112}
   asteroidController: {fileID: 0}
   explosion: {fileID: 2189597013391435756, guid: 55e69e1e83189de42844f74304af79a3, type: 3}
@@ -435,12 +435,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1742540485, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
+  m_Sprite: {fileID: -1764754981, guid: d174b7735a22e0f4ba42bc339fb70b19, type: 3}
   m_Color: {r: 1, g: 0.7311321, b: 0.7311321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.87, y: 0.52}
+  m_Size: {x: 0.89, y: 0.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

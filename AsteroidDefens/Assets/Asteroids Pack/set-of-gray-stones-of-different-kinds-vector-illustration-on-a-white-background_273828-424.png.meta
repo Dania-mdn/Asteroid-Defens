@@ -131,10 +131,10 @@ TextureImporter:
       name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 260
-        width: 91
-        height: 56
+        x: 5
+        y: 261
+        width: 89
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9b08c4e5f0543e48973e0d44b2c49cf
-      internalID: -335501133
+      spriteID: 79e4c9c85aeca5f4999df88d8b78e95a
+      internalID: -1764754981
       vertices: []
       indices: 
       edges: []
@@ -152,10 +152,10 @@ TextureImporter:
       name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_1
       rect:
         serializedVersion: 2
-        x: 108
-        y: 257
-        width: 84
-        height: 77
+        x: 109
+        y: 258
+        width: 82
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8bd8d7c4cecf7b48bb32ccfb6d54634
-      internalID: -644163744
+      spriteID: d63c120788105a146bb9db5c12ef9f68
+      internalID: 1903770078
       vertices: []
       indices: 
       edges: []
@@ -173,10 +173,10 @@ TextureImporter:
       name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_2
       rect:
         serializedVersion: 2
-        x: 209
-        y: 256
-        width: 135
-        height: 56
+        x: 211
+        y: 257
+        width: 132
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57c99ce62cf7c0e48957b612547e55d8
-      internalID: 35359238
+      spriteID: 55f0c040bd716104f93395d5fe5c03de
+      internalID: 1196227094
       vertices: []
       indices: 
       edges: []
@@ -194,10 +194,10 @@ TextureImporter:
       name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_3
       rect:
         serializedVersion: 2
-        x: 365
-        y: 257
-        width: 91
-        height: 89
+        x: 366
+        y: 258
+        width: 89
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b3860cd309f54a40bd0ed443244991f
-      internalID: -1478395328
+      spriteID: 94a86deffcab8c04f9b407829462b639
+      internalID: -792151424
       vertices: []
       indices: 
       edges: []
@@ -215,219 +215,9 @@ TextureImporter:
       name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_4
       rect:
         serializedVersion: 2
-        x: 470
+        x: 472
         y: 260
-        width: 101
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caa83537cfcf67e42ada4c72d24d267e
-      internalID: -152350633
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_5
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 128
-        width: 79
-        height: 114
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f8bf621dd003e51419afa829390fc2b8
-      internalID: 1417577384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_6
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 128
-        width: 87
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78a5fe0971e1ab842a6cc188ce43f9b4
-      internalID: 1816764298
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_7
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 137
-        width: 100
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 493a5428b2e0cfb4db6a04506e3327c9
-      internalID: 1705232544
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_8
-      rect:
-        serializedVersion: 2
-        x: 373
-        y: 128
         width: 98
-        height: 109
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fbf8d17217d029b43b11aa54e7753871
-      internalID: -303661781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_9
-      rect:
-        serializedVersion: 2
-        x: 484
-        y: 133
-        width: 82
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 308594fcc8a6a074db2b556aa3f55512
-      internalID: -2084005168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_10
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 24
-        width: 114
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92960cb16d9cfed4697fe69969a07011
-      internalID: -2009067349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_11
-      rect:
-        serializedVersion: 2
-        x: 124
-        y: 25
-        width: 98
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17f2bb830c1201547942308445dc325a
-      internalID: -1738837214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_12
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 24
-        width: 107
-        height: 83
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1ac021a3530d614b94460153df43cec
-      internalID: -933116979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_13
-      rect:
-        serializedVersion: 2
-        x: 351
-        y: 25
-        width: 104
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b318fabc5eed1364aa326bfe627373df
-      internalID: -1652438466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_14
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 25
-        width: 112
         height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -436,8 +226,218 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c5d4878157203146ba81c5b2b4b2b64
-      internalID: 1742540485
+      spriteID: 2a9ee2b8f8b76184c98999484a4e6bee
+      internalID: -765625235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 129
+        width: 75
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086cdffb0739f6b4185f44f14059b49d
+      internalID: -352071303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_6
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 129
+        width: 85
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc663862ffa13f40854dcec341deaeb
+      internalID: 1502997361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_7
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 138
+        width: 98
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3185013d628981b4593af11499812852
+      internalID: 1054135793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_8
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 129
+        width: 95
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef22d0ddc1ab92b468d422cd5e4486ea
+      internalID: 1044526401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_9
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 134
+        width: 80
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190b32d2290f70a4295d4d8a94d58f0e
+      internalID: 925253652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 25
+        width: 112
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94affdb89ec536478b72b874f44e33b
+      internalID: 593232534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_11
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 26
+        width: 96
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1719eb13173b4f479c6d9069392b215
+      internalID: -500422997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_12
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 25
+        width: 104
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f0f7096b765c54b81449ffb5e80758
+      internalID: 575046458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_13
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 26
+        width: 102
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d0468aa0e428347b8f202858fc7b77
+      internalID: 428490239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_14
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 26
+        width: 110
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf77ee494964b964c849efbf9d05d222
+      internalID: 1296229821
       vertices: []
       indices: 
       edges: []
@@ -453,21 +453,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_11: -1738837214
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_7: 1705232544
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_9: -2084005168
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_2: 35359238
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_0: -335501133
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_1: -644163744
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_8: -303661781
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_6: 1816764298
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_13: -1652438466
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_3: -1478395328
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_14: 1742540485
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_4: -152350633
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_12: -933116979
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_10: -2009067349
-      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_5: 1417577384
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_11: -500422997
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_7: 1054135793
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_9: 925253652
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_2: 1196227094
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_0: -1764754981
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_1: 1903770078
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_8: 1044526401
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_6: 1502997361
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_13: 428490239
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_3: -792151424
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_14: 1296229821
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_4: -765625235
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_12: 575046458
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_10: 593232534
+      set-of-gray-stones-of-different-kinds-vector-illustration-on-a-white-background_273828-424_5: -352071303
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
