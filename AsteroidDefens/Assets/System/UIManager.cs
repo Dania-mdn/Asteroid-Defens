@@ -144,6 +144,10 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.DeleteKey("Reward");
         }
     }
+    public void hksalf(GameObject go)
+    {
+        go.SetActive(false);
+    }
     private void StartStep()
     {
         DayAudio.Play();

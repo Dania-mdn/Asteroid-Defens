@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AsteroidController : MonoBehaviour
 {
@@ -34,6 +35,12 @@ public class AsteroidController : MonoBehaviour
     public float coldawnStar = 15;
     private float timerStar;
     public Animation[] star;
+
+    public GameObject Alliance;
+    public Animation AnimationAlliance;
+    private Image ImageAlliance;
+    public Sprite[] SpriteAlliance;
+    public float timerAlliance;
 
     private void OnEnable()
     {
@@ -69,9 +76,13 @@ public class AsteroidController : MonoBehaviour
         }
 
         timer = coldawn;
+
+        ImageAlliance = Alliance.GetComponent<Image>(); 
+        AddStep();
     }
     private void Update()
     {
+
         if (timerStar > 0)
         {
             timerStar = timerStar - Time.deltaTime;
@@ -85,29 +96,51 @@ public class AsteroidController : MonoBehaviour
 
 
 
-        if (!IsSpawn) return;
-
-        if (AttackCount % 10 == 0)
+        if (!IsSpawn)
         {
-            GameObject MediateAsteroid;
-            MediateAsteroid = Instantiate(BigAsteroid, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
-            MediateAsteroid.GetComponent<Asteroid>().asteroidController = this;
-            MediateAsteroid.GetComponent<Asteroid>().Helth = asteroidCount;
-            SetIsSpawn(false);
-            AttackCount++;
-        }
-        else
-        {
-            if (timer < 0)
+            if (timerAlliance > 0)
             {
-                GeneretedAsteroid();
-                timer = coldawn;
+                timerAlliance = timerAlliance - Time.deltaTime;
             }
             else
             {
-                timer = timer - Time.deltaTime;
+                if (AnimationAlliance.isPlaying == false)
+                {
+                    AnimationAlliance.Play();
+                    Alliance.SetActive(true);
+                    ImageAlliance.sprite = SpriteAlliance[Random.Range(0, SpriteAlliance.Length)];
+                }
+                AddStep();
             }
         }
+        else
+        {
+            if (AttackCount % 10 == 0)
+            {
+                GameObject MediateAsteroid;
+                MediateAsteroid = Instantiate(BigAsteroid, widtharray[BigAsteroidDirectionl], Quaternion.identity, transform);
+                MediateAsteroid.GetComponent<Asteroid>().asteroidController = this;
+                MediateAsteroid.GetComponent<Asteroid>().Helth = asteroidCount;
+                SetIsSpawn(false);
+                AttackCount++;
+            }
+            else
+            {
+                if (timer < 0)
+                {
+                    GeneretedAsteroid();
+                    timer = coldawn;
+                }
+                else
+                {
+                    timer = timer - Time.deltaTime;
+                }
+            }
+        }
+    }
+    public void AddStep()
+    {
+        timerAlliance = Random.Range(40, 120);
     }
     private void GeneretedAsteroid()
     {
