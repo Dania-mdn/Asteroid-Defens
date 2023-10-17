@@ -12,9 +12,6 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text levelText;
 
-    public Toggle TogglAudio;
-    public GameObject WatchAdd;
-
     void Awake()
     {
         GameDistribution.OnResumeGame += OnResumeGame;
@@ -39,12 +36,13 @@ public class GameManager : MonoBehaviour
 
     public void OnResumeGame()
     {
-        TogglAudio.isOn = false;
+        if (PlayerPrefs.HasKey("MuteAudio") == false)
+            SystemEvent.DoPlayAudio();
     }
 
     public void OnPauseGame()
     {
-        TogglAudio.isOn = true;
+        SystemEvent.DoMuteAudio();
     }
     public void OnRewardGame()
     {
