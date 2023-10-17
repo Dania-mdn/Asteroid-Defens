@@ -38,11 +38,13 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("MuteAudio") == false)
             SystemEvent.DoPlayAudio();
+        Time.timeScale = 1;
     }
 
     public void OnPauseGame()
     {
         SystemEvent.DoMuteAudio();
+        Time.timeScale = 0;
     }
     public void OnRewardGame()
     {

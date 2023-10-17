@@ -24,11 +24,15 @@ public class mortira : MonoBehaviour
     {
         SystemEvent.EndStep += SetIsSpawn;
         SystemEvent.Upgrade += Upgrade;
+        SystemEvent.MuteAudio += AudioMute;
+        SystemEvent.PlayAudio += AudioPlay;
     }
     private void OnDisable()
     {
         SystemEvent.EndStep -= SetIsSpawn;
         SystemEvent.Upgrade -= Upgrade;
+        SystemEvent.MuteAudio -= AudioMute;
+        SystemEvent.PlayAudio -= AudioPlay;
     }
     private void Start()
     {
@@ -96,5 +100,13 @@ public class mortira : MonoBehaviour
     private void SetIsSpawn(bool isSpawn)
     {
         IsSpawn = isSpawn;
+    }
+    public void AudioMute()
+    {
+        AudioMortira.mute = true;
+    }
+    public void AudioPlay()
+    {
+        AudioMortira.mute = false;
     }
 }

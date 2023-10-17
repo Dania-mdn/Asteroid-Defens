@@ -24,12 +24,16 @@ public class laser : MonoBehaviour
         SystemEvent.EndStep += SetIsSpawn;
         SystemEvent.Upgrade += Upgrade;
         SystemEvent.StartStep += Setrotation;
+        SystemEvent.MuteAudio += AudioMute;
+        SystemEvent.PlayAudio += AudioPlay;
     }
     private void OnDisable()
     {
         SystemEvent.EndStep -= SetIsSpawn;
         SystemEvent.Upgrade -= Upgrade;
         SystemEvent.StartStep -= Setrotation;
+        SystemEvent.MuteAudio -= AudioMute;
+        SystemEvent.PlayAudio -= AudioPlay;
     }
     private void Start()
     {
@@ -88,5 +92,13 @@ public class laser : MonoBehaviour
     private void Setrotation()
     {
         transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+    }
+    public void AudioMute()
+    {
+        AudioLaser.mute = true;
+    }
+    public void AudioPlay()
+    {
+        AudioLaser.mute = false;
     }
 }
