@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>{{{ PRODUCT_NAME }}}</title>
+    <title>Asteroid Shield Tile-Matching Space Defense</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
-  <body class="{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}">
+  <body class="dark">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
     </div>
@@ -23,23 +23,17 @@
     </div>
     <div id="unity-fullscreen-button" style="display: none;"></div>
     <script>
-      const hideFullScreenButton = "{{{ HIDE_FULL_SCREEN_BUTTON }}}";
+      const hideFullScreenButton = "";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
+      const loaderUrl = buildUrl + "/web.loader.js";
       const config = {
-        dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
-        frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
-        codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
-#if MEMORY_FILENAME
-        memoryUrl: buildUrl + "/{{{ MEMORY_FILENAME }}}",
-#endif
-#if SYMBOLS_FILENAME
-        symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
-#endif
+        dataUrl: buildUrl + "/c7a207cc66405b954ea8ce1b11b95d30.data.unityweb",
+        frameworkUrl: buildUrl + "/02e0afd67a0d8704eb05e5ca4b6ce988.js.unityweb",
+        codeUrl: buildUrl + "/8de0dd9887183b58833323f3a3c16dfa.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "{{{ COMPANY_NAME }}}",
-        productName: "{{{ PRODUCT_NAME }}}",
-        productVersion: "{{{ PRODUCT_VERSION }}}",
+        companyName: "GamesdMurdock",
+        productName: "Asteroid Shield Tile-Matching Space Defense",
+        productVersion: "1.0",
       };
 
       const container = document.querySelector("#unity-container");
@@ -69,9 +63,6 @@
         container.className = "unity-mobile";
         config.devicePixelRatio = 1;
       }
-#if BACKGROUND_FILENAME
-      canvas.style.background = "url('" + buildUrl + "/{{{ BACKGROUND_FILENAME.replace(/'/g, '%27') }}}') center / cover";
-#endif
       loadingCover.style.display = "";
 
       const script = document.createElement("script");

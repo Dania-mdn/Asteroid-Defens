@@ -20,7 +20,7 @@ body {
 #unity-canvas {
     width: 100%;
     height: 100%;
-    /*background: {{{ BACKGROUND_COLOR }}};*/
+    /*background: #231F20;*/
     background: black;
 }
 #loading-cover {
