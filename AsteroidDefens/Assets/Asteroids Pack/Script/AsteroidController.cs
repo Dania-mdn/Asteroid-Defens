@@ -42,6 +42,9 @@ public class AsteroidController : MonoBehaviour
     public Sprite[] SpriteAlliance;
     public float timerAlliance;
 
+    private int AdsCount;
+    public GameManager GameManager;
+
     private void OnEnable()
     {
         SystemEvent.EndStep += SetIsSpawn;
@@ -177,6 +180,7 @@ public class AsteroidController : MonoBehaviour
                 FightAudio.Play();
                 Spaceship.Play();
             }
+            AdsCount++;
         }
     }
     private void SetList(GameObject Asteroid)
@@ -188,6 +192,11 @@ public class AsteroidController : MonoBehaviour
     {
         if (Asteroids.Count == 0 && !endGame)
         {
+            if(AdsCount == 2)
+            {
+                AdsCount = 0;
+                GameManager.ShowAd();
+            }
             if (!plane.activeSelf)
             {
                 ParticleSystem.Stop();
