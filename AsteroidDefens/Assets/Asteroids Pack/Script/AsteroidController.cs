@@ -43,7 +43,7 @@ public class AsteroidController : MonoBehaviour
     public float timerAlliance;
 
     private int AdsCount;
-    public GameManager GameManager;
+    //public GameManager GameManager;
 
     private void OnEnable()
     {
@@ -195,7 +195,7 @@ public class AsteroidController : MonoBehaviour
             if(AdsCount == 2)
             {
                 AdsCount = 0;
-                GameManager.ShowAd();
+                //GameManager.ShowAd();
             }
             if (!plane.activeSelf)
             {
